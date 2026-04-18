@@ -28,7 +28,7 @@ agex fuerza un flujo donde:
 
 ---
 
-## Flujo de 6 comandos
+## Flujo de 7 comandos
 
 ```
 /sdd-start  →  /sdd-spec  →  /sdd-plan  →  /sdd-do  →  /sdd-review  →  /sdd-wrap
@@ -94,7 +94,8 @@ Ticket Jira
     ├── adr/                     Architectural Decision Records
     ├── services/                CONTEXT.md + decisions + incidents por servicio
     ├── specs/                   Source of truth (specs consolidadas)
-    ├── changes/                 Specs en curso
+    ├── changes/
+    │   ├── active/              Specs en curso (tickets abiertos)
     │   └── archive/             Specs archivadas al cerrar ticket
     ├── post-mortems/
     └── glossary.md              Términos del dominio
@@ -132,7 +133,6 @@ Sin ese paso, el sistema no aprende.
 
 - Claude Code instalado
 - Git
-- Acceso al repo de OpenAccess
 - Opcional: acceso a Jira para la skill `jira-integration`
 
 ---
