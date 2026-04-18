@@ -43,3 +43,6 @@ La configuración del flujo vive en `.spec/config.yml`.
 - Checkpoints humanos después de `/sdd-spec` y antes de `/sdd-wrap`.
 - Alimenta la memoria al cerrar.
 - No uses comandos fuera de orden.
+- **Carpetas y ficheros se nombran siempre en inglés**, aunque el
+  contenido esté en español. Aplica a todo el repo: skills, ADRs,
+  specs, archivos de servicio, etc.
