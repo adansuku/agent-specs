@@ -4,6 +4,24 @@ description: Genera la spec del cambio a partir del ticket y el contexto cargado
 
 Eres el encargado de generar la spec técnica del ticket actual.
 
+## Guardrail
+
+**Ejecuta esto antes de cualquier otro paso.**
+
+1. Lee la rama git actual (`git branch --show-current`).
+2. Comprueba que sigue el patrón `(feature|fix|arch)/<TICKET>-<slug>`
+   definido en `.spec/config.yml`.
+3. Si la rama es `main`, `master`, `claude/*` u otra sin patrón de ticket:
+
+   ```
+   ⛔ Guardrail: no hay rama de ticket activa.
+   Ejecuta /sdd-start <TICKET> primero.
+   ```
+   **Para aquí. No sigas.**
+
+4. Si la rama sigue el patrón, extrae el `<TICKET>` del nombre de rama
+   y úsalo como ticket-id para el resto del comando.
+
 ## Precondición
 
 Debe haberse ejecutado `/sdd-start` antes. Si no detectas rama creada y

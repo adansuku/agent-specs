@@ -24,8 +24,12 @@ agex se usa a través de 6 slash commands en Claude Code:
 | `/sdd-spec` | Cierra decisiones y genera la spec del cambio |
 | `/sdd-plan` | Traduce la spec en plan ejecutable y lista de tareas |
 | `/sdd-do` | Implementa tareas una a una con review incremental |
-| `/sdd-review` | Code review final contra spec, ADRs y convenciones |
+| `/sdd-review` | Code review final contra spec, ADRs y convenciones; persiste `review.md` |
 | `/sdd-wrap` | Actualiza memoria, archiva spec, commit y PR |
+
+Cada comando (excepto `/sdd-start`) tiene un bloque **Guardrail** que valida
+que el paso anterior se completó antes de ejecutarse. Si la precondición no
+se cumple, el agente emite `⛔ Guardrail: <motivo>` y se detiene.
 
 Los tickets clasificados como `quick-fix` saltan `/sdd-spec` y `/sdd-plan`.
 
@@ -131,6 +135,13 @@ Cada ejecución del flujo produce artefactos en `.docs/`:
 - **Checkpoints humanos obligatorios**: después de `/sdd-spec` y antes de
   `/sdd-wrap`. El flujo no avanza automáticamente en esos puntos.
 
+- **Guardrails por paso**: desde AGEX-002, cada comando `/sdd-*` (excepto
+  `/sdd-start`) valida activamente que el paso anterior se completó antes
+  de ejecutarse. La detección se basa en: rama git activa con patrón de
+  ticket, existencia de artefactos (`proposal.md`, `plan.md`, `tasks.md`,
+  `review.md`) y estado de los checkboxes en `tasks.md`. El error tiene
+  prefijo `⛔ Guardrail:` e indica qué comando ejecutar.
+
 - **`quick-fix` como tipo ligero**: los cambios menores saltan spec y plan
   para reducir fricción, manteniendo el commit y la actualización de
   memoria en `/sdd-wrap`.
@@ -153,4 +164,4 @@ Cada ejecución del flujo produce artefactos en `.docs/`:
 
 ## Última actualización
 
-2026-04-18 — AGEX-001
+2026-04-18 — AGEX-002

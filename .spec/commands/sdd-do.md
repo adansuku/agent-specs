@@ -4,6 +4,34 @@ description: Implementa las tareas del plan una a una con review incremental
 
 Ejecutas `tasks.md` en orden, tarea a tarea.
 
+## Guardrail
+
+**Ejecuta esto antes de cualquier otro paso.**
+
+1. Lee la rama git actual y extrae el `<ticket-id>`.
+   Si la rama no sigue el patrón `(feature|fix|arch)/<TICKET>-<slug>`:
+
+   ```
+   ⛔ Guardrail: no hay rama de ticket activa.
+   Ejecuta /sdd-start <TICKET> primero.
+   ```
+   **Para aquí. No sigas.**
+
+2. Comprueba si la rama empieza por `fix/` (quick-fix).
+   - Si **no es quick-fix**: comprueba que existen
+     `.docs/changes/<ticket-id>/plan.md` y
+     `.docs/changes/<ticket-id>/tasks.md`.
+     Si falta alguno:
+
+     ```
+     ⛔ Guardrail: no existe plan.md o tasks.md para <ticket-id>.
+     Ejecuta /sdd-plan primero.
+     ```
+     **Para aquí. No sigas.**
+
+   - Si **es quick-fix**: puedes continuar aunque no existan
+     `plan.md` ni `tasks.md`. Salta directamente al paso 4.
+
 ## Precondición
 
 Debe existir `.docs/changes/<ticket-id>/tasks.md`.

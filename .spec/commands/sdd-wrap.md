@@ -5,6 +5,38 @@ description: Cierra el ticket — actualiza memoria, archiva spec, commit y PR
 Este es el paso que alimenta la memoria arquitectónica.
 **Sin este paso, el sistema no aprende.**
 
+## Guardrail
+
+**Ejecuta esto antes de cualquier otro paso.**
+
+1. Lee la rama git actual y extrae el `<ticket-id>`.
+   Si la rama no sigue el patrón `(feature|fix|arch)/<TICKET>-<slug>`:
+
+   ```
+   ⛔ Guardrail: no hay rama de ticket activa.
+   Ejecuta /sdd-start <TICKET> primero.
+   ```
+   **Para aquí. No sigas.**
+
+2. Comprueba que existe `.docs/changes/<ticket-id>/review.md`.
+   Si no existe:
+
+   ```
+   ⛔ Guardrail: no existe review.md para <ticket-id>.
+   Ejecuta /sdd-review primero.
+   ```
+   **Para aquí. No sigas.**
+
+3. Lee `.docs/changes/<ticket-id>/review.md` y busca la línea
+   `✓ Listo para /sdd-wrap`.
+   Si no aparece esa línea:
+
+   ```
+   ⛔ Guardrail: el review de <ticket-id> no tiene veredicto ✓.
+   Resuelve los bloqueantes y vuelve a ejecutar /sdd-review.
+   ```
+   **Para aquí. No sigas.**
+
 ## Precondición
 
 - `/sdd-review` con veredicto ✓

@@ -4,6 +4,28 @@ description: Genera plan de implementación y tareas a partir de la spec aprobad
 
 Traduces la spec en un plan ejecutable.
 
+## Guardrail
+
+**Ejecuta esto antes de cualquier otro paso.**
+
+1. Lee la rama git actual y extrae el `<ticket-id>`.
+   Si la rama no sigue el patrón `(feature|fix|arch)/<TICKET>-<slug>`:
+
+   ```
+   ⛔ Guardrail: no hay rama de ticket activa.
+   Ejecuta /sdd-start <TICKET> primero.
+   ```
+   **Para aquí. No sigas.**
+
+2. Comprueba que existe `.docs/changes/<ticket-id>/proposal.md`.
+   Si no existe:
+
+   ```
+   ⛔ Guardrail: no existe proposal.md para <ticket-id>.
+   Ejecuta /sdd-spec primero.
+   ```
+   **Para aquí. No sigas.**
+
 ## Precondición
 
 Debe existir `.docs/changes/<ticket-id>/proposal.md`.
