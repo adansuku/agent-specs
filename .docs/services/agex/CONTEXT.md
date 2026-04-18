@@ -26,6 +26,7 @@ agex se usa a través de 6 slash commands en Claude Code:
 | `/sdd-do` | Implementa tareas una a una con review incremental |
 | `/sdd-review` | Code review final contra spec, ADRs y convenciones; persiste `review.md` |
 | `/sdd-wrap` | Actualiza memoria, archiva spec, commit y PR |
+| `/sdd-status [TICKET-ID]` | Muestra el estado actual de un ticket en el flujo (solo lectura) |
 
 Cada comando (excepto `/sdd-start`) tiene un bloque **Guardrail** que valida
 que el paso anterior se completó antes de ejecutarse. Si la precondición no
@@ -46,6 +47,7 @@ a través del symlink `.claude/commands → ../.spec/commands`.
 - `sdd-do.md` — ejecuta `tasks.md` tarea a tarea con review incremental
 - `sdd-review.md` — revisa en 4 ejes: spec, convenciones, ADRs, riesgos
 - `sdd-wrap.md` — alimenta memoria, archiva spec, crea commit y PR
+- `sdd-status.md` — comando de solo lectura; infiere y reporta el estado actual de un ticket
 
 ### Skills (`/.spec/skills/`)
 
@@ -164,4 +166,4 @@ Cada ejecución del flujo produce artefactos en `.docs/`:
 
 ## Última actualización
 
-2026-04-18 — AGEX-002
+2026-04-18 — AGEX-003
