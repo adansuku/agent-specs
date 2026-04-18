@@ -1,6 +1,6 @@
-# Proyecto con libnova.spec
+# Proyecto con agex
 
-Este repo usa el flujo **libnova.spec** (SDD) para cualquier cambio no trivial.
+Este repo usa el flujo **agex** (SDD) para cualquier cambio no trivial.
 
 ## Memoria arquitectónica
 

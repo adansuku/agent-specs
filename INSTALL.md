@@ -1,6 +1,6 @@
-# Instalación de libnova.spec
+# Instalación de agex
 
-Guía para instalar el framework libnova.spec en cualquier repositorio.
+Guía para instalar el framework agex en cualquier repositorio.
 
 ---
 
@@ -12,7 +12,7 @@ Guía para instalar el framework libnova.spec en cualquier repositorio.
 - Un repositorio donde instalar el framework (puede estar vacío o tener
   contenido previo)
 
-> **Nota sobre Windows**: los symlinks que usa libnova.spec requieren
+> **Nota sobre Windows**: los symlinks que usa agex requieren
 > permisos especiales en Windows nativo (Developer Mode o admin). Se
 > recomienda usar **WSL** para evitar fricción.
 
@@ -28,7 +28,7 @@ cd /ruta/a/tu/repo
 
 ### 2. Copiar `install.sh`
 
-Copia el script `install.sh` desde el repo base de libnova.spec a la
+Copia el script `install.sh` desde el repo base de agex a la
 raíz de tu repo destino (o invócalo por ruta absoluta).
 
 ### 3. Ejecutar
@@ -163,7 +163,7 @@ el formato.
 
 ## Actualización del framework
 
-Para actualizar libnova.spec en un repo ya instalado, vuelve a ejecutar
+Para actualizar agex en un repo ya instalado, vuelve a ejecutar
 `install.sh` desde la versión más reciente del repo base:
 
 ```bash
@@ -232,4 +232,4 @@ bash install.sh
 ## Siguiente paso
 
 Lee [README.md](./README.md) para entender el flujo completo de
-libnova.spec.
+agex.

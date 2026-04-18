@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# libnova.spec bootstrap
+# agex bootstrap
 # Crea toda la estructura + contenido de comandos y skills.
-# Uso: bash bootstrap-libnova-spec.sh
+# Uso: bash install.sh
 
 set -e
 
-echo "→ Creando estructura de libnova.spec..."
+echo "→ Creando estructura de agex..."
 
 # Directorios
 mkdir -p .spec/{commands,skills,agents}
@@ -30,7 +30,7 @@ cd ..
 # ============================================================
 
 cat > .spec/config.yml <<'EOF'
-# libnova.spec — configuración del framework
+# agex — configuración del framework
 branch:
   pattern: "{type}/{ticket}-{slug}"
   types:
@@ -46,9 +46,9 @@ EOF
 # ============================================================
 
 cat > CLAUDE.md <<'EOF'
-# Proyecto con libnova.spec
+# Proyecto con agex
 
-Este repo usa el flujo **libnova.spec** (SDD) para cualquier cambio no trivial.
+Este repo usa el flujo **agex** (SDD) para cualquier cambio no trivial.
 
 ## Memoria arquitectónica
 
@@ -94,11 +94,11 @@ EOF
 
 cat > .spec/commands/sdd-start.md <<'EOF'
 ---
-description: Arranca el flujo libnova.spec desde un ticket de Jira
+description: Arranca el flujo agex desde un ticket de Jira
 argument-hint: <TICKET-ID>
 ---
 
-Eres el orquestador inicial del flujo libnova.spec.
+Eres el orquestador inicial del flujo agex.
 
 El usuario te ha pasado el ticket: **$ARGUMENTS**
 
@@ -1324,11 +1324,11 @@ EOF
 # ============================================================
 
 echo ""
-echo "✓ libnova.spec instalado"
+echo "✓ agex instalado"
 echo ""
 echo "Estructura creada:"
 tree -a -L 3 -I '.git' 2>/dev/null || find . -maxdepth 3 -not -path '*/\.git*' | sort
 echo ""
 echo "Siguiente paso:"
 echo "  Abre Claude Code en este directorio y prueba:"
-echo "    /sdd-start OA-1234"
+echo "    /sdd-start PROJ-123"

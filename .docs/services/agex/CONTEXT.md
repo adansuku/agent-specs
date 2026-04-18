@@ -164,17 +164,15 @@ de `active/` a `archive/`.
 
 ## Peculiaridades conocidas
 
-- El nombre del framework cambió de `libnova.spec` a `agex` (Agent
-  Experience) durante el piloto. El `install.sh` todavía contiene
-  referencias a `libnova.spec` en comentarios y en el header del script
-  (bug conocido, pendiente de limpiar en ticket posterior).
-
-- El prefijo de tickets era `LNS-` (libnova) y pasó a `AGEX-`. Los
-  archivos del ticket piloto LNS-001 fueron borrados en AGEX-001.
+- El prefijo de tickets era `LNS-` (libnova) y pasó a `AGEX-` al
+  renombrar el framework de `libnova.spec` a `agex` (Agent Experience)
+  durante el piloto. Los archivos del ticket piloto LNS-001 fueron
+  borrados en AGEX-001; el resto de referencias textuales a
+  `libnova.spec` en código y docs se limpiaron en AGEX-008.
 
 - `notes.md` en la raíz es el cuaderno de feedback del piloto: cualquier
   observación sobre el framework durante su uso se anota ahí.
 
 ## Última actualización
 
-2026-04-18 — AGEX-004
+2026-04-18 — AGEX-008

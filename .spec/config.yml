@@ -1,4 +1,4 @@
-# libnova.spec — configuración del framework
+# agex — configuración del framework
 branch:
   pattern: "{type}/{ticket}-{slug}"
   types:

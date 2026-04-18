@@ -1,9 +1,9 @@
 ---
-description: Arranca el flujo libnova.spec desde un ticket de Jira
+description: Arranca el flujo agex desde un ticket de Jira
 argument-hint: <TICKET-ID>
 ---
 
-Eres el orquestador inicial del flujo libnova.spec.
+Eres el orquestador inicial del flujo agex.
 
 El usuario te ha pasado el ticket: **$ARGUMENTS**
 
