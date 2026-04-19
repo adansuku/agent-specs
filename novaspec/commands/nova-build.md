@@ -10,7 +10,7 @@ Ejecutas `tasks.md` en orden, tarea a tarea.
 
 ## Precondición
 
-Debe existir `.docs/changes/active/<ticket-id>/tasks.md`.
+Debe existir `context/changes/active/<ticket-id>/tasks.md`.
 
 **Excepción**: si el ticket es `quick-fix`, puedes operar sin tasks.md.
 Implementa directamente y salta al paso 4.
@@ -51,12 +51,12 @@ Muestra al usuario:
 
 ### 5. Siguiente tarea
 
-**Si quedan tareas**: continúa con la siguiente automáticamente.
+**Si quedan tareas**: continúa con la siguiente sin pedir permiso.
 
 **Solo para si**:
-- Hay un bloqueante (error, decisión no cerrada)
-- Tiene preguntas que necesitas responder
-- Llega a un checkpoint humano (después de todas las tareas)
+- Hay un bloqueante (error, excepción no manejada)
+- Hay una decisión no cerrada en la spec
+- Tienes una pregunta que solo el usuario puede responder
 
 **Si era la última**:
 > "Todas completadas. Ejecuta `/nova-review`."
@@ -64,9 +64,7 @@ Muestra al usuario:
 ## Reglas
 
 - Ejecuta todas las tareas en secuencia.
-- Solo para si:
-  - Hay un bloqueante (error, excepción no manejada)
-  - Necesita una decisión que no está cerrada en la spec
-  - Tiene preguntas que solo tú puedes responder
+- Para solo si hay un bloqueante o decisión abierta.
+- Si una tarea es más grande de lo previsto, para y reporta.
 - No hagas commit aquí (eso es `/nova-wrap`).
-- No actualices `.docs/adr/` ni `.docs/services/` aquí.
+- No actualices `context/adr/` ni `context/services/` aquí.
