@@ -16,7 +16,6 @@ Optimiza para **claridad, completitud y decisiones cerradas**.
 Antes de preguntar, lee:
 - `.docs/services/<servicio>/CONTEXT.md` de servicios afectados
 - `.docs/adr/` — ADRs que puedan aplicar
-- `.docs/specs/` — specs actuales
 - `.docs/glossary.md` — términos del dominio
 
 ## Comportamiento

@@ -73,10 +73,9 @@ de error y exit distinto de cero.
 │   ├── skills   -> ../.spec/skills
 │   └── agents   -> ../.spec/agents
 │
-└── .docs/                       Memoria arquitectónica y specs
+└── .docs/                       Memoria arquitectónica
     ├── adr/                     Architectural Decision Records
     ├── services/                CONTEXT.md por servicio
-    ├── specs/                   Source of truth (specs consolidadas)
     ├── changes/
     │   ├── active/              Specs en curso (tickets abiertos)
     │   └── archive/             Specs archivadas al cerrar ticket
