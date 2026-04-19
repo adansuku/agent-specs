@@ -1,6 +1,6 @@
-# Instalación de agex
+# Instalación de nova-spec
 
-Guía para instalar el framework agex en cualquier repositorio.
+Guía para instalar el framework nova-spec en cualquier repositorio.
 
 ---
 
@@ -12,7 +12,7 @@ Guía para instalar el framework agex en cualquier repositorio.
 - Un repositorio donde instalar el framework (puede estar vacío o tener
   contenido previo)
 
-> **Nota sobre Windows**: los symlinks que usa agex requieren
+> **Nota sobre Windows**: los symlinks que usa nova-spec requieren
 > permisos especiales en Windows nativo (Developer Mode o admin). Se
 > recomienda usar **WSL** para evitar fricción.
 
@@ -20,10 +20,10 @@ Guía para instalar el framework agex en cualquier repositorio.
 
 ## Instalación rápida
 
-### 1. Clonar el repo `agex` en local
+### 1. Clonar el repo `nova-spec` en local
 
 ```bash
-git clone <url-del-repo-agex> /ruta/a/agex
+git clone <url-del-repo-nova-spec> /ruta/a/nova-spec
 ```
 
 `install.sh` copia el contenido desde su propia ubicación, así que
@@ -39,18 +39,18 @@ cd /ruta/a/tu/repo
 ### 3. Ejecutar con ruta absoluta al script
 
 ```bash
-bash /ruta/a/agex/install.sh
+bash /ruta/a/nova-spec/install.sh
 ```
 
 El script detecta su propia ubicación (`SCRIPT_DIR`) y copia desde
-allí `.spec/` y `CLAUDE.md` al directorio actual. El destino es `$PWD`.
+allí `novaspec/` y `CLAUDE.md` al directorio actual. El destino es `$PWD`.
 
-Es idempotente: ejecutarlo varias veces regenera `.spec/` y `CLAUDE.md`
+Es idempotente: ejecutarlo varias veces regenera `novaspec/` y `CLAUDE.md`
 desde la fuente, pero **no toca** `.docs/`, `notes.md` ni los archivos
 de trabajo en `.docs/changes/`.
 
 Si ejecutas el script desde un directorio donde no encuentra sus fuentes
-(`.spec/` y `CLAUDE.md` en su mismo `SCRIPT_DIR`), aborta con un mensaje
+(`novaspec/` y `CLAUDE.md` en su mismo `SCRIPT_DIR`), aborta con un mensaje
 de error y exit distinto de cero.
 
 ---
@@ -62,16 +62,16 @@ de error y exit distinto de cero.
 ├── CLAUDE.md                    Ancla del repo, lo primero que Claude lee
 ├── notes.md                     Notas de uso (para iteración)
 │
-├── .spec/                       Contenido canónico del framework
+├── novaspec/                       Contenido canónico del framework
 │   ├── config.yml               Convenciones (ramas, tipos de ticket)
-│   ├── commands/                7 slash commands `/sdd-*`
+│   ├── commands/                7 slash commands `/nova-*`
 │   ├── skills/                  4 skills autocargadas por contexto
 │   └── agents/                  Vacío, para sub-agents futuros
 │
 ├── .claude/                     Symlinks para que Claude Code descubra los comandos
-│   ├── commands -> ../.spec/commands
-│   ├── skills   -> ../.spec/skills
-│   └── agents   -> ../.spec/agents
+│   ├── commands -> ../novaspec/commands
+│   ├── skills   -> ../novaspec/skills
+│   └── agents   -> ../novaspec/agents
 │
 └── .docs/                       Memoria arquitectónica
     ├── adr/                     Architectural Decision Records
@@ -96,9 +96,9 @@ ls -la .claude/
 Debes ver tres flechas `->`:
 
 ```
-agents   -> ../.spec/agents
-commands -> ../.spec/commands
-skills   -> ../.spec/skills
+agents   -> ../novaspec/agents
+commands -> ../novaspec/commands
+skills   -> ../novaspec/skills
 ```
 
 ### 2. Comandos en Claude Code
@@ -111,20 +111,20 @@ claude
 
 Teclea `/` y comprueba que aparecen los 7 comandos en el autocomplete:
 
-- `/sdd-start`
-- `/sdd-spec`
-- `/sdd-plan`
-- `/sdd-do`
-- `/sdd-review`
-- `/sdd-wrap`
-- `/sdd-status`
+- `/nova-start`
+- `/nova-spec`
+- `/nova-plan`
+- `/nova-build`
+- `/nova-review`
+- `/nova-wrap`
+- `/nova-status`
 
 ### 3. Primer ticket
 
 Recomendado: empieza con un ticket pequeño y de bajo riesgo.
 
 ```
-/sdd-start TICKET-ID
+/nova-start TICKET-ID
 ```
 
 El comando te guía paso a paso.
@@ -135,7 +135,7 @@ El comando te guía paso a paso.
 
 ### Convenciones de rama
 
-Edita `.spec/config.yml`:
+Edita `novaspec/config.yml`:
 
 ```yaml
 branch:
@@ -149,7 +149,7 @@ branch:
 ```
 
 `branch.base` controla contra qué rama se crea cada rama de ticket en
-`/sdd-start` y contra cuál se abre el PR en `/sdd-wrap`. Default seguro
+`/nova-start` y contra cuál se abre el PR en `/nova-wrap`. Default seguro
 para repos convencionales; cámbialo a `develop` u otra si tu repo usa
 otra rama de integración.
 
@@ -174,16 +174,16 @@ el formato.
 
 ## Actualización del framework
 
-Para actualizar agex en un repo ya instalado, actualiza tu clone
-local del repo agex (`git pull`) y vuelve a ejecutar el script desde
+Para actualizar nova-spec en un repo ya instalado, actualiza tu clone
+local del repo nova-spec (`git pull`) y vuelve a ejecutar el script desde
 tu repo destino:
 
 ```bash
-cd /ruta/a/agex && git pull
-cd /ruta/a/tu/repo && bash /ruta/a/agex/install.sh
+cd /ruta/a/nova-spec && git pull
+cd /ruta/a/tu/repo && bash /ruta/a/nova-spec/install.sh
 ```
 
-El script sobrescribe `.spec/` y `CLAUDE.md` con la versión de la
+El script sobrescribe `novaspec/` y `CLAUDE.md` con la versión de la
 fuente. **No toca** `.docs/`, `notes.md` ni los archivos de trabajo
 en `.docs/changes/`.
 
@@ -196,7 +196,7 @@ en `.docs/changes/`.
 ## Desinstalación
 
 ```bash
-rm -rf .spec .claude .docs
+rm -rf novaspec .claude .docs
 rm -f CLAUDE.md notes.md
 ```
 
@@ -211,15 +211,15 @@ rm -f CLAUDE.md notes.md
 
 1. Verifica los symlinks: `ls -la .claude/`.
 2. Cierra y reabre Claude Code (a veces cachea el listado).
-3. Verifica que los archivos en `.spec/commands/` tienen frontmatter
+3. Verifica que los archivos en `novaspec/commands/` tienen frontmatter
    válido (con `description:` al menos).
 
 ### "No encuentro la skill `load-context`"
 
-- Verifica que existe `.spec/skills/load-context/SKILL.md`.
+- Verifica que existe `novaspec/skills/load-context/SKILL.md`.
 - Verifica que el frontmatter tiene `name:` y `description:`.
 - Asegúrate de que el symlink `.claude/skills` apunta a
-  `../.spec/skills`.
+  `../novaspec/skills`.
 
 ### Symlinks rotos al clonar el repo
 
@@ -246,4 +246,4 @@ bash install.sh
 ## Siguiente paso
 
 Lee [README.md](./README.md) para entender el flujo completo de
-agex.
+nova-spec.

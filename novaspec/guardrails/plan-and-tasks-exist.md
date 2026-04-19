@@ -12,7 +12,7 @@ Comprueba si la rama empieza por `fix/` (quick-fix):
 
   ```
   ⛔ Guardrail: no existe plan.md o tasks.md para <ticket-id>.
-  Ejecuta /sdd-plan primero.
+  Ejecuta /nova-plan primero.
   ```
   **Para aquí. No sigas.**
 

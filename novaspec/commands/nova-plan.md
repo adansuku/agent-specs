@@ -10,8 +10,8 @@ Traduces la spec en un plan ejecutable.
 siguientes guardrails del framework (cada uno vive en su archivo y define
 su propio mensaje de error + comando de recuperación):
 
-1. `.spec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
-2. `.spec/guardrails/proposal-exists.md` — verifica `proposal.md`.
+1. `novaspec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
+2. `novaspec/guardrails/proposal-exists.md` — verifica `proposal.md`.
 
 ## Precondición
 
@@ -75,7 +75,7 @@ Reglas:
 
 ### 4. Checkpoint humano
 
-> "Plan y tareas generados. Revísalos. Ejecuta `/sdd-do` cuando estés listo."
+> "Plan y tareas generados. Revísalos. Ejecuta `/nova-build` cuando estés listo."
 
 ## Reglas
 

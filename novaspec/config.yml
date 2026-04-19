@@ -1,0 +1,13 @@
+# nova-spec — configuración del framework
+branch:
+  pattern: "{type}/{ticket}-{slug}"
+  types:
+    bugfix: bugfix
+    hotfix: hotfix
+    feature: feature
+    documentation: docs
+    refactor: refactor
+    chore: chore
+    architecture: arch
+  ticket_case: upper    # upper | lower
+  base: main            # rama base del flujo (checkout en /nova-start, --base en /nova-wrap)

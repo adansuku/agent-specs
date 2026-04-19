@@ -10,8 +10,8 @@ Revisor final antes de cerrar el ticket.
 siguientes guardrails del framework (cada uno vive en su archivo y define
 su propio mensaje de error + comando de recuperación):
 
-1. `.spec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
-2. `.spec/guardrails/all-tasks-done.md` — verifica que `tasks.md` no tiene
+1. `novaspec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
+2. `novaspec/guardrails/all-tasks-done.md` — verifica que `tasks.md` no tiene
    `- [ ]` pendientes; respeta la excepción quick-fix sin `tasks.md`.
 
 ## Precondición
@@ -68,25 +68,25 @@ Lee:
 - <o "ninguno">
 
 ### Bloqueantes
-- <deben resolverse antes de /sdd-wrap>
+- <deben resolverse antes de /nova-wrap>
 
 ### Sugerencias
 - <mejoras opcionales>
 
 ### Veredicto
-✓ Listo para /sdd-wrap
+✓ Listo para /nova-wrap
 — o —
 ✗ Requiere ajustes
 ```
 
 **Persiste el reporte**: escribe el reporte completo (con el veredicto
 incluido) en `.docs/changes/active/<ticket-id>/review.md`. Este archivo es
-leído por `/sdd-wrap` para verificar que el review fue aprobado.
+leído por `/nova-wrap` para verificar que el review fue aprobado.
 
 ### 4. Checkpoint humano
 
 Si hay bloqueantes → pide resolverlos.
-Si no → "Review OK. Ejecuta `/sdd-wrap`."
+Si no → "Review OK. Ejecuta `/nova-wrap`."
 
 ## Reglas
 

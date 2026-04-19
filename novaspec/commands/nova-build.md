@@ -10,8 +10,8 @@ Ejecutas `tasks.md` en orden, tarea a tarea.
 siguientes guardrails del framework (cada uno vive en su archivo y define
 su propio mensaje de error + comando de recuperación):
 
-1. `.spec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
-2. `.spec/guardrails/plan-and-tasks-exist.md` — verifica `plan.md` y
+1. `novaspec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
+2. `novaspec/guardrails/plan-and-tasks-exist.md` — verifica `plan.md` y
    `tasks.md`; respeta la excepción quick-fix (rama `fix/` salta al
    paso 4 de los pasos principales, implementación directa).
 
@@ -27,7 +27,7 @@ Implementa directamente y salta al paso 4.
 ### 1. Leer tasks.md
 
 Identifica la primera sin marcar (`- [ ]`).
-Si todas están marcadas, avisa: "ejecuta `/sdd-review`".
+Si todas están marcadas, avisa: "ejecuta `/nova-review`".
 
 ### 2. Ejecutar una tarea
 
@@ -62,12 +62,12 @@ Muestra al usuario:
 > "Tarea N completada. ¿Sigo con N+1 o paramos?"
 
 **Si era la última**:
-> "Todas completadas. Ejecuta `/sdd-review`."
+> "Todas completadas. Ejecuta `/nova-review`."
 
 ## Reglas
 
 - Una tarea a la vez. No encadenes sin permiso.
 - Si una tarea es más grande de lo previsto, para.
 - Si descubres decisión no cerrada, para.
-- No hagas commit aquí (eso es `/sdd-wrap`).
+- No hagas commit aquí (eso es `/nova-wrap`).
 - No actualices `.docs/adr/` ni `.docs/services/` aquí.

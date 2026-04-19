@@ -11,13 +11,13 @@ Este es el paso que alimenta la memoria arquitectónica.
 siguientes guardrails del framework (cada uno vive en su archivo y define
 su propio mensaje de error + comando de recuperación):
 
-1. `.spec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
-2. `.spec/guardrails/review-approved.md` — verifica `review.md` y la línea
-   `✓ Listo para /sdd-wrap`.
+1. `novaspec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
+2. `novaspec/guardrails/review-approved.md` — verifica `review.md` y la línea
+   `✓ Listo para /nova-wrap`.
 
 ## Precondición
 
-- `/sdd-review` con veredicto ✓
+- `/nova-review` con veredicto ✓
 - Sin bloqueantes pendientes
 
 ## Pasos
@@ -65,10 +65,10 @@ Si hay muchos cambios, propón agrupar en commits lógicos.
 
 ### 6. Crear PR
 
-Resuelve la rama base igual que `/sdd-start`:
-- Lee `branch.base` de `.spec/config.yml`.
+Resuelve la rama base igual que `/nova-start`:
+- Lee `branch.base` de `novaspec/config.yml`.
 - Si la clave falta, intenta `develop`; si tampoco existe, pregunta al
-  usuario y recomienda fijar `branch.base` en `.spec/config.yml`.
+  usuario y recomienda fijar `branch.base` en `novaspec/config.yml`.
 
 Crea el PR con `gh pr create --base <base-resuelta> --title "<título>"
 --body "<descripción>"`.

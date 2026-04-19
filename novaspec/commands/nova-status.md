@@ -30,7 +30,7 @@ Si no hay argumento:
 
      ```
      No hay ticket activo y no hay tickets abiertos en .docs/changes/active/.
-     Ejecuta /sdd-start <TICKET> para comenzar.
+     Ejecuta /nova-start <TICKET> para comenzar.
      ```
 
    - En ambos casos, **termina aquí**.
@@ -58,8 +58,8 @@ Evalúa los artefactos en este orden (el primero que aplica gana):
 | Condición | Paso inferido |
 |---|---|
 | Directorio en `archive/` | `archivado` |
-| Existe `review.md` | `wrap` (listo para `/sdd-wrap`) |
-| Existe `tasks.md` y **todas** las líneas `- [x]` (ninguna `- [ ]`) | `review` (listo para `/sdd-review`) |
+| Existe `review.md` | `wrap` (listo para `/nova-wrap`) |
+| Existe `tasks.md` y **todas** las líneas `- [x]` (ninguna `- [ ]`) | `review` (listo para `/nova-review`) |
 | Existe `tasks.md` con al menos una `- [ ]` | `do` (en progreso) |
 | Existe `tasks.md` sin ningún checkbox | `do` (sin tareas ejecutadas) |
 | Existe `plan.md` pero no `tasks.md` | `plan` (plan sin tareas) |
@@ -105,12 +105,12 @@ Archivado  : .docs/changes/archive/<ticket-id>/
 
 | Paso | Siguiente comando |
 |---|---|
-| `start` | `/sdd-spec` |
-| `spec` | `/sdd-plan` |
-| `plan` | `/sdd-do` |
-| `do` | `/sdd-do` (continuar) |
-| `review` | `/sdd-review` |
-| `wrap` | `/sdd-wrap` |
+| `start` | `/nova-spec` |
+| `spec` | `/nova-plan` |
+| `plan` | `/nova-build` |
+| `do` | `/nova-build` (continuar) |
+| `review` | `/nova-review` |
+| `wrap` | `/nova-wrap` |
 | `archivado` | — (ticket cerrado) |
 
 ## Reglas

@@ -7,15 +7,15 @@ Verifica que el review del ticket existe y tiene veredicto ✓.
 
    ```
    ⛔ Guardrail: no existe review.md para <ticket-id>.
-   Ejecuta /sdd-review primero.
+   Ejecuta /nova-review primero.
    ```
    **Para aquí. No sigas.**
 
 2. Lee `.docs/changes/active/<ticket-id>/review.md` y busca la línea
-   `✓ Listo para /sdd-wrap`. Si no aparece esa línea:
+   `✓ Listo para /nova-wrap`. Si no aparece esa línea:
 
    ```
    ⛔ Guardrail: el review de <ticket-id> no tiene veredicto ✓.
-   Resuelve los bloqueantes y vuelve a ejecutar /sdd-review.
+   Resuelve los bloqueantes y vuelve a ejecutar /nova-review.
    ```
    **Para aquí. No sigas.**

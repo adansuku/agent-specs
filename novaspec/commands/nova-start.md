@@ -1,9 +1,9 @@
 ---
-description: Arranca el flujo agex desde un ticket de Jira
+description: Arranca el flujo nova-spec desde un ticket de Jira
 argument-hint: <TICKET-ID>
 ---
 
-Eres el orquestador inicial del flujo agex.
+Eres el orquestador inicial del flujo nova-spec.
 
 El usuario te ha pasado el ticket: **$ARGUMENTS**
 
@@ -37,7 +37,7 @@ Si no está claro, pregunta con opciones concretas.
 
 ### 4. Crear rama de git
 
-Lee `.spec/config.yml`:
+Lee `novaspec/config.yml`:
 - `branch.pattern` para el nombre de rama (default `{type}/{ticket}-{slug}`).
 - `branch.base` para la rama base del flujo. Resolución:
   - Si la clave **existe**: usa ese valor. Si la rama no existe en git,
@@ -45,10 +45,10 @@ Lee `.spec/config.yml`:
   - Si la clave **falta** (instalación vieja): intenta `develop`.
     - Si `develop` existe: úsala, pero avisa al usuario:
       "Usando `develop` como fallback. Añade `branch.base` a
-      `.spec/config.yml` para fijarla."
+      `novaspec/config.yml` para fijarla."
     - Si `develop` no existe: lista las ramas locales (`git branch`),
       pregunta al usuario cuál usar y recomienda escribirla en
-      `.spec/config.yml`. No sigas hasta tener respuesta.
+      `novaspec/config.yml`. No sigas hasta tener respuesta.
 
 Default por tipo: `feature/<TICKET>-<slug>`, `fix/<TICKET>-<slug>`,
 `arch/<TICKET>-<slug>`.
@@ -87,9 +87,9 @@ Presenta:
 ```
 
 Próximo paso:
-- quick-fix → `/sdd-do`
-- feature → `/sdd-spec`
-- architecture → `/sdd-spec` (avisa: requerirá ADR en /sdd-wrap)
+- quick-fix → `/nova-build`
+- feature → `/nova-spec`
+- architecture → `/nova-spec` (avisa: requerirá ADR en /nova-wrap)
 
 ## Reglas
 

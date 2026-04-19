@@ -1,9 +1,0 @@
-# agex — configuración del framework
-branch:
-  pattern: "{type}/{ticket}-{slug}"
-  types:
-    quick-fix: fix
-    feature: feature
-    architecture: arch
-  ticket_case: upper    # upper | lower
-  base: main            # rama base del flujo (checkout en /sdd-start, --base en /sdd-wrap)

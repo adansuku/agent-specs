@@ -10,12 +10,12 @@ Eres el encargado de generar la spec técnica del ticket actual.
 siguientes guardrails del framework (cada uno vive en su archivo y define
 su propio mensaje de error + comando de recuperación):
 
-1. `.spec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
+1. `novaspec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
 
 ## Precondición
 
-Debe haberse ejecutado `/sdd-start` antes. Si no detectas rama creada y
-contexto cargado, pide al usuario que ejecute `/sdd-start <TICKET>` primero.
+Debe haberse ejecutado `/nova-start` antes. Si no detectas rama creada y
+contexto cargado, pide al usuario que ejecute `/nova-start <TICKET>` primero.
 
 ## Pasos
 
@@ -88,7 +88,7 @@ Como <actor>, quiero <capacidad>, para <resultado>.
 Muestra la spec y di:
 
 > "Spec generada en `.docs/changes/active/<ticket-id>/proposal.md`.
->  Revísala antes de `/sdd-plan`."
+>  Revísala antes de `/nova-plan`."
 
 No avances automáticamente.
 

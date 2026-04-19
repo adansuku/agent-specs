@@ -11,7 +11,7 @@ Comprueba si es quick-fix (rama `fix/`) y si existe
 
   ```
   ⛔ Guardrail: hay N tarea(s) sin completar en tasks.md.
-  Ejecuta /sdd-do para completarlas primero.
+  Ejecuta /nova-build para completarlas primero.
   ```
   **Para aquí. No sigas.**
 
@@ -20,6 +20,6 @@ Comprueba si es quick-fix (rama `fix/`) y si existe
 
   ```
   ⛔ Guardrail: no existe tasks.md para <ticket-id>.
-  Ejecuta /sdd-plan primero.
+  Ejecuta /nova-plan primero.
   ```
   **Para aquí. No sigas.**

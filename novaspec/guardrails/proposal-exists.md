@@ -7,6 +7,6 @@ Si no existe:
 
 ```
 ⛔ Guardrail: no existe proposal.md para <ticket-id>.
-Ejecuta /sdd-spec primero.
+Ejecuta /nova-spec primero.
 ```
 **Para aquí. No sigas.**
