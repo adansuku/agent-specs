@@ -1,3 +1,4 @@
+<!-- Mantén esta spec ≤ 60 líneas. Bullets y tablas, no prosa. Se carga en cada turno de nova-build. -->
 # <TICKET-ID>: <título>
 
 ## Historia

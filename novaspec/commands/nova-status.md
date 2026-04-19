@@ -53,18 +53,17 @@ Termina aquí.
 
 ## Paso 3 — Inferir el paso actual
 
-Evalúa los artefactos en este orden (el primero que aplica gana):
+Evalúa en orden (el primero que aplica gana):
 
-| Condición | Paso inferido |
-|---|---|
-| Directorio en `archive/` | `archivado` |
-| Existe `review.md` | `wrap` (listo para `/nova-wrap`) |
-| Existe `tasks.md` y **todas** las líneas `- [x]` (ninguna `- [ ]`) | `review` (listo para `/nova-review`) |
-| Existe `tasks.md` con al menos una `- [ ]` | `do` (en progreso) |
-| Existe `tasks.md` sin ningún checkbox | `do` (sin tareas ejecutadas) |
-| Existe `plan.md` pero no `tasks.md` | `plan` (plan sin tareas) |
-| Existe `proposal.md` pero no `plan.md` | `spec` (spec sin plan) |
-| No existe `proposal.md` | `start` (solo rama, sin spec) |
+| Condición | Paso | Siguiente |
+|---|---|---|
+| Directorio en `archive/` | `archivado` | — |
+| Existe `review.md` | `wrap` | `/nova-wrap` |
+| `tasks.md` sin `- [ ]` pendientes | `review` | `/nova-review` |
+| `tasks.md` con algún `- [ ]` | `do` | `/nova-build` |
+| `plan.md` sin `tasks.md` | `plan` | `/nova-build` |
+| `proposal.md` sin `plan.md` | `spec` | `/nova-plan` |
+| Sin `proposal.md` | `start` | `/nova-spec` |
 
 ## Paso 4 — Leer el título
 
@@ -80,21 +79,10 @@ Solo si el paso es `do` o `review`:
 
 ## Paso 6 — Mostrar el reporte
 
-Usa la estructura de `novaspec/templates/status-report.md` como referencia
-para el formato. Incluye la línea `Progreso` solo si el paso es `do`; incluye
-`Archivado` en lugar de `Siguiente` si el paso es `archivado`.
-
-### Tabla de siguientes comandos
-
-| Paso | Siguiente comando |
-|---|---|
-| `start` | `/nova-spec` |
-| `spec` | `/nova-plan` |
-| `plan` | `/nova-build` |
-| `do` | `/nova-build` (continuar) |
-| `review` | `/nova-review` |
-| `wrap` | `/nova-wrap` |
-| `archivado` | — (ticket cerrado) |
+Usa la estructura de `novaspec/templates/status-report.md` como referencia.
+Incluye `Progreso` solo si el paso es `do`; usa `Archivado` en lugar de
+`Siguiente` si el paso es `archivado`. El campo `Siguiente` viene de la
+columna homónima del Paso 3.
 
 ## Reglas
 

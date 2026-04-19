@@ -30,7 +30,7 @@ Objetivo: **forzar decisiones**, no explorar.
 
 Reglas:
 - tono conversacional
-- tantas preguntas como hagan falta
+- máximo 3 preguntas por turno, agrúpalas por tema
 - cada una resuelve decisión concreta
 - prefiere trade-offs (A vs B) a abiertas
 - siempre que puedas, incluye default sugerido

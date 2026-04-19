@@ -87,4 +87,4 @@ Cuando detectes huecos, ofrece acciones concretas:
 
 - No inventes contexto.
 - No bloquees si falta `.docs/`.
-- Preguntas concretas con opciones.
+- Preguntas concretas con opciones. Agrúpalas en un solo turno.
