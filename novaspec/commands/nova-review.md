@@ -4,11 +4,7 @@ description: Code review final del cambio contra spec, convenciones y ADRs
 
 Revisor final antes de cerrar el ticket.
 
-## Guardrail
-
-**Ejecuta esto antes de cualquier otro paso.** Aplica en orden los
-siguientes guardrails del framework (cada uno vive en su archivo y define
-su propio mensaje de error + comando de recuperación):
+## Guardrail — aplica en orden antes de cualquier paso:
 
 1. `novaspec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
 2. `novaspec/guardrails/all-tasks-done.md` — verifica que `tasks.md` no tiene

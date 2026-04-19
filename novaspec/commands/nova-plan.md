@@ -4,11 +4,7 @@ description: Genera plan de implementación y tareas a partir de la spec aprobad
 
 Traduces la spec en un plan ejecutable.
 
-## Guardrail
-
-**Ejecuta esto antes de cualquier otro paso.** Aplica en orden los
-siguientes guardrails del framework (cada uno vive en su archivo y define
-su propio mensaje de error + comando de recuperación):
+## Guardrail — aplica en orden antes de cualquier paso:
 
 1. `novaspec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
 2. `novaspec/guardrails/proposal-exists.md` — verifica `proposal.md`.

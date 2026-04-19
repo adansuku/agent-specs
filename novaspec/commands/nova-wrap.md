@@ -5,11 +5,7 @@ description: Cierra el ticket — actualiza memoria, archiva spec, commit y PR
 Este es el paso que alimenta la memoria arquitectónica.
 **Sin este paso, el sistema no aprende.**
 
-## Guardrail
-
-**Ejecuta esto antes de cualquier otro paso.** Aplica en orden los
-siguientes guardrails del framework (cada uno vive en su archivo y define
-su propio mensaje de error + comando de recuperación):
+## Guardrail — aplica en orden antes de cualquier paso:
 
 1. `novaspec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
 2. `novaspec/guardrails/review-approved.md` — verifica `review.md` y la línea

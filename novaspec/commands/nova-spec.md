@@ -4,11 +4,7 @@ description: Genera la spec del cambio a partir del ticket y el contexto cargado
 
 Eres el encargado de generar la spec técnica del ticket actual.
 
-## Guardrail
-
-**Ejecuta esto antes de cualquier otro paso.** Aplica en orden los
-siguientes guardrails del framework (cada uno vive en su archivo y define
-su propio mensaje de error + comando de recuperación):
+## Guardrail — aplica en orden antes de cualquier paso:
 
 1. `novaspec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
 
@@ -21,13 +17,8 @@ contexto cargado, pide al usuario que ejecute `/nova-start <TICKET>` primero.
 
 ### 1. Invocar close-requirement
 
-Invoca la skill `close-requirement` para:
-- cerrar decisiones mediante preguntas
-- anclar defaults en el código existente
-- iterar hasta que no queden ambigüedades
-
-**No sigas al paso 2 hasta que el usuario confirme** que las decisiones
-están cerradas.
+Invoca la skill `close-requirement`.
+**No sigas al paso 2 hasta que el usuario confirme** que las decisiones están cerradas.
 
 ### 2. Redactar la spec
 
