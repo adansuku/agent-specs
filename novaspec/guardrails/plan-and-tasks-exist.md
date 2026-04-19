@@ -10,11 +10,7 @@ Comprueba si la rama empieza por `fix/` (quick-fix):
   `.docs/changes/active/<ticket-id>/tasks.md`.
   Si falta alguno:
 
-  ```
-  ⛔ Guardrail: no existe plan.md o tasks.md para <ticket-id>.
-  Ejecuta /nova-plan primero.
-  ```
-  **Para aquí. No sigas.**
+  ⛔ **Para.** No existe `plan.md` o `tasks.md` para `<ticket-id>`. Ejecuta `/nova-plan` primero.
 
 - Si **es quick-fix**: puedes continuar aunque no existan `plan.md` ni
   `tasks.md`. Salta directamente a la implementación.

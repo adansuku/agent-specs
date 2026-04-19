@@ -6,11 +6,7 @@ Lee la rama git actual y extrae el `<ticket-id>`.
 Si la rama no sigue el patrón `(feature|fix|arch)/<TICKET>-<slug>`
 definido en `novaspec/config.yml`:
 
-```
-⛔ Guardrail: no hay rama de ticket activa.
-Ejecuta /nova-start <TICKET> primero.
-```
-**Para aquí. No sigas.**
+⛔ **Para.** No hay rama de ticket activa. Ejecuta `/nova-start <TICKET>` primero.
 
 Si la rama sigue el patrón, extrae el `<TICKET>` del nombre de rama y
 úsalo como `<ticket-id>` para el resto del comando.

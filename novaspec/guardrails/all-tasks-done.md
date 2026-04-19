@@ -9,17 +9,9 @@ Comprueba si es quick-fix (rama `fix/`) y si existe
 - Si **existe `tasks.md`**: comprueba que no quede ningún `- [ ]` sin
   marcar. Si quedan tareas pendientes:
 
-  ```
-  ⛔ Guardrail: hay N tarea(s) sin completar en tasks.md.
-  Ejecuta /nova-build para completarlas primero.
-  ```
-  **Para aquí. No sigas.**
+  ⛔ **Para.** Hay tareas `- [ ]` sin completar en `tasks.md`. Ejecuta `/nova-build` primero.
 
 - Si **no existe `tasks.md`** y es quick-fix: continúa.
 - Si **no existe `tasks.md`** y no es quick-fix:
 
-  ```
-  ⛔ Guardrail: no existe tasks.md para <ticket-id>.
-  Ejecuta /nova-plan primero.
-  ```
-  **Para aquí. No sigas.**
+  ⛔ **Para.** No existe `tasks.md` para `<ticket-id>`. Ejecuta `/nova-plan` primero.
