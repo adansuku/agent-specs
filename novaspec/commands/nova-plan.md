@@ -10,7 +10,7 @@ Traduces la spec en un plan ejecutable.
 
 ## Precondición
 
-Debe existir `.docs/changes/active/<ticket-id>/proposal.md`.
+Debe existir `context/changes/active/<ticket-id>/proposal.md`.
 
 ## Pasos
 
@@ -20,12 +20,12 @@ Identifica servicios afectados, decisiones cerradas, criterios de éxito.
 
 ### 2. Generar plan.md
 
-Crea `.docs/changes/active/<ticket-id>/plan.md` usando la estructura de
+Crea `context/changes/active/<ticket-id>/plan.md` usando la estructura de
 `novaspec/templates/plan.md` como plantilla.
 
 ### 3. Generar tasks.md
 
-Crea `.docs/changes/active/<ticket-id>/tasks.md` usando la estructura de
+Crea `context/changes/active/<ticket-id>/tasks.md` usando la estructura de
 `novaspec/templates/tasks.md` como plantilla.
 
 Reglas:

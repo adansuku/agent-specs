@@ -10,7 +10,7 @@ Ejecutas `tasks.md` en orden, tarea a tarea.
 
 ## Precondición
 
-Debe existir `.docs/changes/active/<ticket-id>/tasks.md`.
+Debe existir `context/changes/active/<ticket-id>/tasks.md`.
 
 **Excepción**: si el ticket es `quick-fix`, puedes operar sin tasks.md.
 Implementa directamente y salta al paso 4.
@@ -63,4 +63,4 @@ Muestra al usuario:
 - Si una tarea es más grande de lo previsto, para.
 - Si descubres decisión no cerrada, para.
 - No hagas commit aquí (eso es `/nova-wrap`).
-- No actualices `.docs/adr/` ni `.docs/services/` aquí.
+- No actualices `context/adr/` ni `context/services/` aquí.

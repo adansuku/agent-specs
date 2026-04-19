@@ -27,9 +27,9 @@ cp -R "$SCRIPT_DIR/novaspec" .
 cp "$SCRIPT_DIR/CLAUDE.md" ./CLAUDE.md
 
 # Memoria arquitectónica: estructura y archivos vacíos (no toca los existentes)
-mkdir -p .docs/{adr,services,post-mortems,changes/{active,archive}}
-touch .docs/glossary.md
-touch .docs/changes/active/.gitkeep
+mkdir -p context/{adr,services,post-mortems,changes/{active,archive}}
+touch context/glossary.md
+touch context/changes/active/.gitkeep
 touch notes.md
 
 # Symlinks .claude/ hacia novaspec/

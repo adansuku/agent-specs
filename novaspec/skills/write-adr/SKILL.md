@@ -5,7 +5,7 @@ description: Crea ADR cuando se toma decisión técnica relevante.
 
 # Escribir ADR
 
-Crea en `.docs/adr/`.
+Crea en `context/adr/`.
 
 ## Cuándo crear
 
@@ -20,7 +20,7 @@ Crea en `.docs/adr/`.
 
 ### 1. Numerar
 
-Escanea `.docs/adr/`, usa siguiente número (`NNNN`).
+Escanea `context/adr/`, usa siguiente número (`NNNN`).
 
 ### 2. Nombre
 

@@ -16,7 +16,7 @@ Si no hay argumento:
 2. Si la rama sigue el patrón `(feature|fix|arch)/<TICKET>-<slug>`,
    extrae `<TICKET>` como `<ticket-id>`.
 3. Si la rama **no** sigue ese patrón:
-   - Lista los directorios bajo `.docs/changes/active/`.
+   - Lista los directorios bajo `context/changes/active/`.
    - Si hay tickets abiertos, muestra:
 
      ```
@@ -29,7 +29,7 @@ Si no hay argumento:
    - Si no hay ninguno, muestra:
 
      ```
-     No hay ticket activo y no hay tickets abiertos en .docs/changes/active/.
+     No hay ticket activo y no hay tickets abiertos en context/changes/active/.
      Ejecuta /nova-start <TICKET> para comenzar.
      ```
 
@@ -39,14 +39,14 @@ Si no hay argumento:
 
 Busca los artefactos del ticket en este orden de prioridad:
 
-1. **Archivado**: existe `.docs/changes/archive/<ticket-id>/` → paso = `archivado`
-2. **Activo**: directorio `.docs/changes/active/<ticket-id>/`
+1. **Archivado**: existe `context/changes/archive/<ticket-id>/` → paso = `archivado`
+2. **Activo**: directorio `context/changes/active/<ticket-id>/`
 
 Si no existe ninguno de los dos:
 
 ```
 Ticket <ticket-id> no encontrado.
-No existe .docs/changes/active/<ticket-id>/ ni .docs/changes/archive/<ticket-id>/
+No existe context/changes/active/<ticket-id>/ ni context/changes/archive/<ticket-id>/
 ```
 
 Termina aquí.

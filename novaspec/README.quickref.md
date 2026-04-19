@@ -19,7 +19,7 @@ Quick-fix: `/nova-start` → `/nova-build` → `/nova-wrap`
 │   ├── commands/  # /nova-*
 │   ├── skills/     # Auto-loaded
 │   └── templates/
-├── .docs/
+├── context/
 │   ├── adr/       # ADRs
 │   ├── services/  # CONTEXT.md
 │   └── changes/   # Active/archive specs

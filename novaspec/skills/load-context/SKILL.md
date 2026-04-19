@@ -9,7 +9,7 @@ Reunir contexto relevante antes de spec o código.
 
 ## Pasos
 
-### 1. Verifica `.docs/`
+### 1. Verifica `context/`
 
 Si no existe, avisa y ofrece crear estructura.
 
@@ -20,13 +20,13 @@ Pregunta con opciones si no tienes claro.
 ### 3. Lee existentes
 
 Para cada servicio:
-- `.docs/services/<servicio>/CONTEXT.md`
-- `.docs/services/<servicio>/decisions.md`
-- `.docs/services/<servicio>/incidents.md`
+- `context/services/<servicio>/CONTEXT.md`
+- `context/services/<servicio>/decisions.md`
+- `context/services/<servicio>/incidents.md`
 
 ### 4. Busca ADRs
 
-Escanea `.docs/adr/`. No fuerces conexiones.
+Escanea `context/adr/`. No fuerces conexiones.
 
 ### 5. Resumen
 
@@ -43,10 +43,10 @@ Escanea `.docs/adr/`. No fuerces conexiones.
 
 - Servicio sin CONTEXT.md
 - Dos interpretaciones del alcance
-- Falta `.docs/` entero
+- Falta `context/` entero
 
 ## Reglas
 
 - No inventes contexto
-- No bloquees si falta `.docs/`
+- No bloquees si falta `context/`
 - Preguntas concretas, agrúpalas

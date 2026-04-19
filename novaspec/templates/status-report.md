@@ -5,4 +5,4 @@ Rama       : <rama git actual>
 Paso actual: <paso>
 Progreso   : <N completadas> / <M totales> tareas  ← solo si paso es "do"
 Siguiente  : <siguiente comando>
-Archivado  : .docs/changes/archive/<ticket-id>/    ← solo si paso es "archivado"
+Archivado  : context/changes/archive/<ticket-id>/    ← solo si paso es "archivado"

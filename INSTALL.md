@@ -46,8 +46,8 @@ El script detecta su propia ubicación (`SCRIPT_DIR`) y copia desde
 allí `novaspec/` y `AGENTS.md` al directorio actual. El destino es `$PWD`.
 
 Es idempotente: ejecutarlo varias veces regenera `novaspec/` y `AGENTS.md`
-desde la fuente, pero **no toca** `.docs/`, `notes.md` ni los archivos
-de trabajo en `.docs/changes/`.
+desde la fuente, pero **no toca** `context/`, `notes.md` ni los archivos
+de trabajo en `context/changes/`.
 
 Si ejecutas el script desde un directorio donde no encuentra sus fuentes
 (`novaspec/` y `AGENTS.md` en su mismo `SCRIPT_DIR`), aborta con un mensaje
@@ -73,7 +73,7 @@ de error y exit distinto de cero.
 │   ├── skills   -> ../novaspec/skills
 │   └── agents   -> ../novaspec/agents
 │
-└── .docs/                       Memoria arquitectónica
+└── context/                       Memoria arquitectónica
     ├── adr/                     Architectural Decision Records
     ├── services/                CONTEXT.md por servicio
     ├── changes/
@@ -158,7 +158,7 @@ otra rama de integración.
 Por cada servicio relevante de tu proyecto, crea:
 
 ```
-.docs/services/<nombre-servicio>/CONTEXT.md
+context/services/<nombre-servicio>/CONTEXT.md
 ```
 
 La skill `update-service-context` te genera la plantilla la primera vez
@@ -167,7 +167,7 @@ que la invocas para un servicio nuevo.
 ### Cargar decisiones previas
 
 Si tu proyecto ya tiene decisiones arquitectónicas, documenta las más
-importantes como ADRs en `.docs/adr/`. La skill `write-adr` te guía con
+importantes como ADRs en `context/adr/`. La skill `write-adr` te guía con
 el formato.
 
 ---
@@ -184,8 +184,8 @@ cd /ruta/a/tu/repo && bash /ruta/a/nova-spec/install.sh
 ```
 
 El script sobrescribe `novaspec/` y `AGENTS.md` con la versión de la
-fuente. **No toca** `.docs/`, `notes.md` ni los archivos de trabajo
-en `.docs/changes/`.
+fuente. **No toca** `context/`, `notes.md` ni los archivos de trabajo
+en `context/changes/`.
 
 > Si has personalizado algún comando o skill en el repo destino, haz
 > commit de tus cambios antes de actualizar, o trabaja en una rama
@@ -200,7 +200,7 @@ rm -rf novaspec .claude .docs
 rm -f AGENTS.md notes.md
 ```
 
-> Esto borra también toda la memoria arquitectónica (`.docs/`). Si
+> Esto borra también toda la memoria arquitectónica (`context/`). Si
 > quieres conservarla, muévela antes a otro sitio.
 
 ---

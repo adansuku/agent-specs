@@ -18,10 +18,10 @@ Revisor final antes de cerrar el ticket.
 ### 1. Preparar el review
 
 Lee:
-- `.docs/changes/active/<ticket-id>/proposal.md`
-- `.docs/changes/active/<ticket-id>/plan.md`
-- `.docs/changes/active/<ticket-id>/tasks.md`
-- ADRs relevantes en `.docs/adr/`
+- `context/changes/active/<ticket-id>/proposal.md`
+- `context/changes/active/<ticket-id>/plan.md`
+- `context/changes/active/<ticket-id>/tasks.md`
+- ADRs relevantes en `context/adr/`
 - Diff de los cambios
 
 ### 2. Ejecutar review en 4 ejes
@@ -50,7 +50,7 @@ Usa la estructura de `novaspec/templates/review.md` como plantilla.
 Ajusta el veredicto: `✓ Listo para /nova-wrap` o `✗ Requiere ajustes`.
 
 **Persiste el reporte**: escribe el reporte completo (con el veredicto
-incluido) en `.docs/changes/active/<ticket-id>/review.md`. Este archivo es
+incluido) en `context/changes/active/<ticket-id>/review.md`. Este archivo es
 leído por `/nova-wrap` para verificar que el review fue aprobado.
 
 ### 4. Checkpoint humano

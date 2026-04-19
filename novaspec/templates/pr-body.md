@@ -5,7 +5,7 @@
 <qué cambia y por qué>
 
 ## Spec
-.docs/changes/archive/<ticket-id>/proposal.md
+context/changes/archive/<ticket-id>/proposal.md
 
 ## ADRs
 - ADR-NNNN: <título> (si aplica)

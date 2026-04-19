@@ -14,11 +14,11 @@ El script `install.sh` del framework `agex` vivía en dos modos posibles:
 
 El modelo de heredocs generó drift real, no hipotético:
 
-- **AGEX-004** (reorganizar `.docs/changes/` con `active/` y `archive/`) migró las rutas en los heredocs de comandos pero olvidó sincronizar el heredoc de `CLAUDE.md`.
+- **AGEX-004** (reorganizar `context/changes/` con `active/` y `archive/`) migró las rutas en los heredocs de comandos pero olvidó sincronizar el heredoc de `CLAUDE.md`.
 - **AGEX-005** fue creado específicamente para arreglar ese drift; se marcó obsoleto y se eliminó en cuanto otros tickets resolvieron el síntoma indirectamente.
 - **AGEX-008** (rename `libnova.spec` → `agex`) duplicó trabajo: el cambio se aplicó en las 5 fuentes canónicas **y** en sus heredocs correspondientes, obligando a mantener un invariante `fuente == heredoc` con `diff` manual.
 
-El framework ya aplicó un principio análogo en otro punto: `.claude/` contiene symlinks a `.spec/` precisamente para **evitar divergencia** entre la fuente y lo que ve el agente (ver `.docs/services/agex/CONTEXT.md` > "Symlinks en lugar de copias"). Coherentemente, el mecanismo de instalación debería seguir el mismo patrón.
+El framework ya aplicó un principio análogo en otro punto: `.claude/` contiene symlinks a `.spec/` precisamente para **evitar divergencia** entre la fuente y lo que ve el agente (ver `context/services/agex/CONTEXT.md` > "Symlinks en lugar de copias"). Coherentemente, el mecanismo de instalación debería seguir el mismo patrón.
 
 ## Decisión
 
@@ -29,7 +29,7 @@ Mecanismo:
 - `SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)` — ubicación canónica del script.
 - `rm -rf .spec && cp -R "$SCRIPT_DIR/.spec" .` — copia idempotente, evita el gotcha de macOS `cp -R src dst/` cuando `dst/src` ya existe.
 - `cp "$SCRIPT_DIR/CLAUDE.md" ./CLAUDE.md` — copia del ancla del repo destino.
-- La estructura vacía (`.docs/*`, `notes.md`, symlinks `.claude/*`) se sigue generando con `mkdir -p` y `ln -s`.
+- La estructura vacía (`context/*`, `notes.md`, symlinks `.claude/*`) se sigue generando con `mkdir -p` y `ln -s`.
 
 Dos guards tempranos abortan con `exit 1`:
 
@@ -83,7 +83,7 @@ Mantener los heredocs y confiar en `/sdd-review` y en la revisión humana para d
 
 ## Referencias
 
-- Ticket: `.docs/changes/archive/AGEX-009/proposal.md`
-- Review: `.docs/changes/archive/AGEX-009/review.md`
-- Patrón análogo: `.docs/services/agex/CONTEXT.md` > "Decisiones clave" > "Symlinks en lugar de copias"
+- Ticket: `context/changes/archive/AGEX-009/proposal.md`
+- Review: `context/changes/archive/AGEX-009/review.md`
+- Patrón análogo: `context/services/agex/CONTEXT.md` > "Decisiones clave" > "Symlinks en lugar de copias"
 - Tickets relacionados (drift histórico): AGEX-004, AGEX-005 (obsoleto), AGEX-008

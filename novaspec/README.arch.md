@@ -23,8 +23,8 @@ Ticket → /nova-start → /nova-spec → /nova-plan
 | Capa | Dónde | Ciclo |
 |------|-------|-------|
 | Sesión | Contexto de Claude Code | Horas |
-| Proyecto | `.docs/changes/active/` | Semanas |
-| Sistema | `.docs/adr/`, `.docs/services/` | Años |
+| Proyecto | `context/changes/active/` | Semanas |
+| Sistema | `context/adr/`, `context/services/` | Años |
 | Org | Repo base (plantillas) | Permanente |
 
 ## Clasificación de tickets

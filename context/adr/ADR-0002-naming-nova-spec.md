@@ -39,6 +39,6 @@ de archivo en Windows.
 
 - Instalaciones previas de `agex` (con `.spec/`) no se migran automáticamente.
   Para actualizar: ejecutar `install.sh` desde el repo `nova-spec` actualizado.
-- Los archivos en `.docs/changes/archive/` mantienen referencias históricas a
+- Los archivos en `context/changes/archive/` mantienen referencias históricas a
   `sdd-*` y `.spec/` — se preservan como registro histórico, no se tocan.
 - Prefijos de tickets `AGEX-NNN` se mantienen para el histórico existente.
