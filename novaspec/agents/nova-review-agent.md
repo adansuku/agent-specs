@@ -14,10 +14,10 @@ usuario. No hagas commits. No modifiques código.
 - Rama activa: `git branch --show-current` → extrae `<ticket-id>` si no
   se pasó como argumento
 - Lee:
-  - `.docs/changes/active/<ticket-id>/proposal.md`
-  - `.docs/changes/active/<ticket-id>/plan.md`
-  - `.docs/changes/active/<ticket-id>/tasks.md`
-- Lee ADRs en `.docs/adr/` (todos los relevantes)
+  - `context/changes/active/<ticket-id>/proposal.md`
+  - `context/changes/active/<ticket-id>/plan.md`
+  - `context/changes/active/<ticket-id>/tasks.md`
+- Lee ADRs en `context/adr/` (todos los relevantes)
 - Obtén el diff completo combinando:
   - Cambios commiteados en la rama: `git diff <branch.base>...HEAD`
   - Cambios sin commitear (working tree + staged): `git diff HEAD`
@@ -57,7 +57,7 @@ Usa la estructura de `novaspec/templates/review.md`.
 - Veredicto `✗ Requiere ajustes` si hay al menos un bloqueante
 
 Escribe el reporte completo en:
-`.docs/changes/active/<ticket-id>/review.md`
+`context/changes/active/<ticket-id>/review.md`
 
 ### 4. Terminar
 

@@ -25,7 +25,7 @@ como argumento. Espera a que termine.
 Muestra al usuario el veredicto devuelto por el agente.
 
 - Si `✓` → "Review OK. Ejecuta `/nova-wrap`."
-- Si `✗` → "Review con bloqueantes. Revisa `.docs/changes/active/<ticket-id>/review.md`
+- Si `✗` → "Review con bloqueantes. Revisa `context/changes/active/<ticket-id>/review.md`
   y corrígelos antes de `/nova-wrap`."
 
 ## Reglas

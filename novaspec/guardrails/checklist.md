@@ -9,7 +9,7 @@ Verifica rama de ticket activa. Extrae `<ticket-id>` de la rama git actual.
 
 ## 2. proposal-exists
 Verifica spec redactada.
-- Debe existir `.docs/changes/active/<ticket-id>/proposal.md`.
+- Debe existir `context/changes/active/<ticket-id>/proposal.md`.
 - ⛔ **Para.** Ejecuta `/nova-spec` primero.
 
 ## 3. plan-and-tasks-exist

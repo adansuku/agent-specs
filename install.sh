@@ -162,10 +162,10 @@ if [[ "$TARGET" == "claude" ]]; then
   cp "$SCRIPT_DIR/AGENTS.md" ./AGENTS.md
   cp "$SCRIPT_DIR/CLAUDE.md" ./CLAUDE.md
 
-  echo -e "${YELLOW}[3/6] Creando estructura .docs/${NC}"
-  mkdir -p .docs/{adr,services,post-mortems,changes/{active,archive}}
-  touch .docs/glossary.md
-  touch .docs/changes/active/.gitkeep
+  echo -e "${YELLOW}[3/6] Creando estructura context/${NC}"
+  mkdir -p context/{adr,services,post-mortems,changes/{active,archive}}
+  touch context/glossary.md
+  touch context/changes/active/.gitkeep
 
   echo -e "${YELLOW}[4/6] Creando symlinks .claude/${NC}"
   mkdir -p .claude
@@ -197,10 +197,10 @@ elif [[ "$TARGET" == "opencode" ]]; then
   echo -e "${YELLOW}[2/5] Copiando AGENTS.md${NC}"
   cp "$SCRIPT_DIR/AGENTS.md" ./AGENTS.md
 
-  echo -e "${YELLOW}[3/5] Creando estructura .docs/${NC}"
-  mkdir -p .docs/{adr,services,post-mortems,changes/{active,archive}}
-  touch .docs/glossary.md
-  touch .docs/changes/active/.gitkeep
+  echo -e "${YELLOW}[3/5] Creando estructura context/${NC}"
+  mkdir -p context/{adr,services,post-mortems,changes/{active,archive}}
+  touch context/glossary.md
+  touch context/changes/active/.gitkeep
 
   echo -e "${YELLOW}[4/5] Creando symlinks .opencode/${NC}"
   mkdir -p .opencode

@@ -33,7 +33,7 @@ Declara tu clasificación con razonamiento breve.
 
 ### 3. Identificar servicios afectados
 
-Deduce qué servicios toca el ticket (`.docs/services/<nombre>/`).
+Deduce qué servicios toca el ticket (`context/services/<nombre>/`).
 Si no está claro, pregunta con opciones concretas.
 
 ### 4. Crear rama de git

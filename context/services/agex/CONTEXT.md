@@ -55,7 +55,7 @@ Tres skills autocargadas por contexto. Claude Code las descubre
 a través del symlink `.claude/skills → ../novaspec/skills`.
 
 - `close-requirement` — cierra decisiones abiertas con preguntas estructuradas
-- `write-adr` — crea Architectural Decision Records en `.docs/adr/`
+- `write-adr` — crea Architectural Decision Records en `context/adr/`
 - `update-service-context` — actualiza CONTEXT.md de un servicio al cerrar ticket
 
 ### Templates (`novaspec/templates/`)
@@ -137,7 +137,7 @@ Introducido en AGEX-010.
 
 El script `install.sh` (en la raíz del repo nova-spec) **copia** `novaspec/` y
 `CLAUDE.md` desde su propia ubicación (`SCRIPT_DIR`) al repo destino
-(`$PWD`) y **crea** la estructura vacía `.docs/` y los symlinks `.claude/`.
+(`$PWD`) y **crea** la estructura vacía `context/` y los symlinks `.claude/`.
 
 Invocación canónica desde el repo destino:
 
@@ -154,24 +154,24 @@ Los symlinks son el mecanismo por el que Claude Code descubre los comandos
 y skills: `.claude/commands → ../novaspec/commands`, etc.
 
 El script es idempotente: puede ejecutarse varias veces. Sobrescribe `novaspec/`
-y `CLAUDE.md` con la versión de la fuente. **No toca** `.docs/`, `notes.md`
-ni los archivos de trabajo en `.docs/changes/`.
+y `CLAUDE.md` con la versión de la fuente. **No toca** `context/`, `notes.md`
+ni los archivos de trabajo en `context/changes/`.
 
 ## Memoria arquitectónica generada
 
-Cada ejecución del flujo produce artefactos en `.docs/`:
+Cada ejecución del flujo produce artefactos en `context/`:
 
 | Artefacto | Dónde | Ciclo de vida |
 |---|---|---|
-| spec en curso | `.docs/changes/active/<ticket>/proposal.md` | Hasta cerrar el ticket |
-| plan en curso | `.docs/changes/active/<ticket>/plan.md` | Hasta cerrar el ticket |
-| tareas | `.docs/changes/active/<ticket>/tasks.md` | Hasta cerrar el ticket |
-| review | `.docs/changes/active/<ticket>/review.md` | Hasta cerrar el ticket |
-| spec archivada | `.docs/changes/archive/<ticket>/` | Permanente |
-| ADRs | `.docs/adr/` | Permanente |
-| CONTEXT.md de servicio | `.docs/services/<servicio>/` | Actualizable |
+| spec en curso | `context/changes/active/<ticket>/proposal.md` | Hasta cerrar el ticket |
+| plan en curso | `context/changes/active/<ticket>/plan.md` | Hasta cerrar el ticket |
+| tareas | `context/changes/active/<ticket>/tasks.md` | Hasta cerrar el ticket |
+| review | `context/changes/active/<ticket>/review.md` | Hasta cerrar el ticket |
+| spec archivada | `context/changes/archive/<ticket>/` | Permanente |
+| ADRs | `context/adr/` | Permanente |
+| CONTEXT.md de servicio | `context/services/<servicio>/` | Actualizable |
 
-`.docs/changes/` tiene dos hijos: `active/` (tickets en curso) y
+`context/changes/` tiene dos hijos: `active/` (tickets en curso) y
 `archive/` (tickets cerrados). `/nova-wrap` mueve la carpeta del ticket
 de `active/` a `archive/`.
 
@@ -188,9 +188,9 @@ de `active/` a `archive/`.
   sobre un generador externo. Coste: requiere tener el repo nova-spec clonado
   localmente para instalar o actualizar.
 
-- **`.docs/` como contenedor único de memoria**: toda la memoria
+- **`context/` como contenedor único de memoria**: toda la memoria
   arquitectónica (ADRs, CONTEXT.md, specs, cambios en curso) vive bajo
-  `.docs/`. La alternativa anterior (`openspec/`) se eliminó por ser
+  `context/`. La alternativa anterior (`openspec/`) se eliminó por ser
   redundante.
 
 - **Separación canónico/symlink**: el contenido vive en `novaspec/` (canónico

@@ -42,7 +42,7 @@ Para cada servicio modificado, invoca skill `update-service-context`.
 
 ### 4. Archivar spec
 
-- Mueve `.docs/changes/active/<ticket-id>/` → `.docs/changes/archive/<ticket-id>/`
+- Mueve `context/changes/active/<ticket-id>/` → `context/changes/archive/<ticket-id>/`
 
 ### 5. Commit
 

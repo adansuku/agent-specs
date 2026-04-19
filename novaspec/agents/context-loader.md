@@ -13,14 +13,14 @@ Servicios afectados: `$ARGUMENTS` (lista separada por espacios)
 
 ## Pasos
 
-### 1. Verificar `.docs/`
+### 1. Verificar `context/`
 
-Si `.docs/` no existe, devuelve:
+Si `context/` no existe, devuelve:
 ```
 ## Contexto cargado
-**Servicios**: no documentado (.docs/ ausente)
+**Servicios**: no documentado (context/ ausente)
 **ADRs**: ninguno
-**Huecos**: estructura .docs/ no inicializada — ejecuta install.sh
+**Huecos**: estructura context/ no inicializada — ejecuta install.sh
 **Preguntas**: ninguna
 ```
 Y termina.
@@ -28,14 +28,14 @@ Y termina.
 ### 2. Leer cada servicio
 
 Para cada servicio en `$ARGUMENTS`:
-- Lee `.docs/services/<servicio>/CONTEXT.md` si existe
-- Lee `.docs/services/<servicio>/decisions.md` si existe
-- Lee `.docs/services/<servicio>/incidents.md` si existe
+- Lee `context/services/<servicio>/CONTEXT.md` si existe
+- Lee `context/services/<servicio>/decisions.md` si existe
+- Lee `context/services/<servicio>/incidents.md` si existe
 - Si no existe CONTEXT.md, anótalo como hueco
 
 ### 3. Buscar ADRs relevantes
 
-Escanea `.docs/adr/`. Lista solo los que tengan conexión con los servicios.
+Escanea `context/adr/`. Lista solo los que tengan conexión con los servicios.
 No fuerces conexiones.
 
 ### 4. Devolver resumen

@@ -22,14 +22,14 @@ Invoca la skill `close-requirement`.
 
 ### 2. Redactar la spec
 
-Crea `.docs/changes/active/<ticket-id>/proposal.md` usando la estructura de
+Crea `context/changes/active/<ticket-id>/proposal.md` usando la estructura de
 `novaspec/templates/proposal.md` como plantilla.
 
 ### 3. Checkpoint humano
 
 Muestra la spec y di:
 
-> "Spec generada en `.docs/changes/active/<ticket-id>/proposal.md`.
+> "Spec generada en `context/changes/active/<ticket-id>/proposal.md`.
 >  Revísala antes de `/nova-plan`."
 
 No avances automáticamente.

@@ -29,7 +29,7 @@ In `novaspec/config.yml`:
 ## Memory structure
 
 ```
-.docs/
+context/
 ├── adr/                    # Architectural Decision Records
 ├── services/                # Per-service CONTEXT.md
 ├── changes/
