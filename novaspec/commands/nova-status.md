@@ -80,26 +80,9 @@ Solo si el paso es `do` o `review`:
 
 ## Paso 6 — Mostrar el reporte
 
-Usa este formato exacto:
-
-```
-## Estado del ticket <TICKET-ID>
-
-Título     : <título>
-Rama       : <rama git actual>
-Paso actual: <paso>
-Siguiente  : <siguiente comando>
-```
-
-Si el paso es `do`, añade debajo de "Paso actual":
-```
-Progreso   : <N completadas> / <M totales> tareas
-```
-
-Si el paso es `archivado`, sustituye "Siguiente" por:
-```
-Archivado  : .docs/changes/archive/<ticket-id>/
-```
+Usa la estructura de `novaspec/templates/status-report.md` como referencia
+para el formato. Incluye la línea `Progreso` solo si el paso es `do`; incluye
+`Archivado` en lugar de `Siguiente` si el paso es `archivado`.
 
 ### Tabla de siguientes comandos
 

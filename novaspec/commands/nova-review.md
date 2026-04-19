@@ -52,32 +52,8 @@ Lee:
 
 ### 3. Reporte
 
-```
-## Review: <TICKET-ID>
-
-### Cumplimiento de spec
-- [✓/✗] Criterio 1: <detalle>
-
-### Convenciones
-- <hallazgos o "sin incidencias">
-
-### ADRs
-- <o "sin conflictos">
-
-### Riesgos
-- <o "ninguno">
-
-### Bloqueantes
-- <deben resolverse antes de /nova-wrap>
-
-### Sugerencias
-- <mejoras opcionales>
-
-### Veredicto
-✓ Listo para /nova-wrap
-— o —
-✗ Requiere ajustes
-```
+Usa la estructura de `novaspec/templates/review.md` como plantilla.
+Ajusta el veredicto: `✓ Listo para /nova-wrap` o `✗ Requiere ajustes`.
 
 **Persiste el reporte**: escribe el reporte completo (con el veredicto
 incluido) en `.docs/changes/active/<ticket-id>/review.md`. Este archivo es

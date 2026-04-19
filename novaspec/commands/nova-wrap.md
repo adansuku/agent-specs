@@ -52,15 +52,7 @@ Para cada servicio modificado, invoca skill `update-service-context`.
 
 ### 5. Commit
 
-```
-<tipo>(<scope>): <resumen>
-
-<cuerpo opcional>
-
-Refs: <TICKET-ID>
-ADRs: <ADR-NNNN si aplica>
-```
-
+Usa la estructura de `novaspec/templates/commit.md` como plantilla.
 Si hay muchos cambios, propón agrupar en commits lógicos.
 
 ### 6. Crear PR
@@ -75,29 +67,7 @@ Crea el PR con `gh pr create --base <base-resuelta> --title "<título>"
 
 **Título**: `<TICKET-ID>: <título>`
 
-**Descripción**:
-```
-## Ticket
-<link a Jira>
-
-## Resumen
-<qué cambia y por qué>
-
-## Spec
-.docs/changes/archive/<ticket-id>/proposal.md
-
-## ADRs
-- ADR-NNNN: <título> (si aplica)
-
-## Verificación manual
-<pasos del plan>
-
-## Checklist
-- [x] Spec archivada
-- [x] CONTEXT.md actualizado
-- [x] ADR creado (si aplicaba)
-- [x] Review sin bloqueantes
-```
+**Descripción**: usa la estructura de `novaspec/templates/pr-body.md` como plantilla.
 
 ### 7. Resumen final
 

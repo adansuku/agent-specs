@@ -25,47 +25,13 @@ Identifica servicios afectados, decisiones cerradas, criterios de éxito.
 
 ### 2. Generar plan.md
 
-Crea `.docs/changes/active/<ticket-id>/plan.md`:
-
-```
-# Plan: <TICKET-ID>
-
-## Estrategia
-<2-3 líneas sobre cómo abordar el cambio>
-
-## Archivos a tocar
-- `<ruta>`: <qué se modifica>
-
-## Archivos nuevos
-- `<ruta>`: <qué contiene>
-
-## Dependencias entre cambios
-<si el orden importa, explícalo>
-
-## Safety net
-- Reversibilidad: <feature flag | toggle | cómo revertir>
-- Qué puede romperse: <específico>
-- Plan de rollback: <pasos>
-
-## Characterization tests
-Antes de modificar código existente:
-- [ ] Test de <comportamiento>
-- [ ] Test de <edge case>
-
-## Verificación
-Cómo verificar cada criterio de éxito de la spec.
-```
+Crea `.docs/changes/active/<ticket-id>/plan.md` usando la estructura de
+`novaspec/templates/plan.md` como plantilla.
 
 ### 3. Generar tasks.md
 
-Crea `.docs/changes/active/<ticket-id>/tasks.md`:
-
-```
-# Tareas: <TICKET-ID>
-
-- [ ] 1. <tarea concreta> — <archivo(s)>
-- [ ] 2. <tarea concreta> — <archivo(s)>
-```
+Crea `.docs/changes/active/<ticket-id>/tasks.md` usando la estructura de
+`novaspec/templates/tasks.md` como plantilla.
 
 Reglas:
 - cada tarea ejecutable en 15-60 min
