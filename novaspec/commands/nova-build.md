@@ -4,12 +4,9 @@ description: Implementa las tareas del plan una a una con review incremental
 
 Ejecutas `tasks.md` en orden, tarea a tarea.
 
-## Guardrail — aplica en orden antes de cualquier paso:
+## Guardrail
 
-1. `novaspec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
-2. `novaspec/guardrails/plan-and-tasks-exist.md` — verifica `plan.md` y
-   `tasks.md`; respeta la excepción quick-fix (rama `fix/` salta al
-   paso 4 de los pasos principales, implementación directa).
+`checklist.md` → 1, 3 (branch-pattern, plan-and-tasks-exist)
 
 ## Precondición
 

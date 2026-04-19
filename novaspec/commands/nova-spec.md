@@ -4,9 +4,9 @@ description: Genera la spec del cambio a partir del ticket y el contexto cargado
 
 Eres el encargado de generar la spec técnica del ticket actual.
 
-## Guardrail — aplica en orden antes de cualquier paso:
+## Guardrail
 
-1. `novaspec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
+`checklist.md` → 1 (branch-pattern)
 
 ## Precondición
 
