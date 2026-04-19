@@ -43,14 +43,14 @@ bash /ruta/a/nova-spec/install.sh
 ```
 
 El script detecta su propia ubicación (`SCRIPT_DIR`) y copia desde
-allí `novaspec/` y `CLAUDE.md` al directorio actual. El destino es `$PWD`.
+allí `novaspec/` y `AGENTS.md` al directorio actual. El destino es `$PWD`.
 
-Es idempotente: ejecutarlo varias veces regenera `novaspec/` y `CLAUDE.md`
+Es idempotente: ejecutarlo varias veces regenera `novaspec/` y `AGENTS.md`
 desde la fuente, pero **no toca** `.docs/`, `notes.md` ni los archivos
 de trabajo en `.docs/changes/`.
 
 Si ejecutas el script desde un directorio donde no encuentra sus fuentes
-(`novaspec/` y `CLAUDE.md` en su mismo `SCRIPT_DIR`), aborta con un mensaje
+(`novaspec/` y `AGENTS.md` en su mismo `SCRIPT_DIR`), aborta con un mensaje
 de error y exit distinto de cero.
 
 ---
@@ -59,7 +59,7 @@ de error y exit distinto de cero.
 
 ```
 .
-├── CLAUDE.md                    Ancla del repo, lo primero que Claude lee
+├── AGENTS.md                    Ancla del repo, lo primero que Claude lee
 ├── notes.md                     Notas de uso (para iteración)
 │
 ├── novaspec/                       Contenido canónico del framework
@@ -183,7 +183,7 @@ cd /ruta/a/nova-spec && git pull
 cd /ruta/a/tu/repo && bash /ruta/a/nova-spec/install.sh
 ```
 
-El script sobrescribe `novaspec/` y `CLAUDE.md` con la versión de la
+El script sobrescribe `novaspec/` y `AGENTS.md` con la versión de la
 fuente. **No toca** `.docs/`, `notes.md` ni los archivos de trabajo
 en `.docs/changes/`.
 
@@ -197,7 +197,7 @@ en `.docs/changes/`.
 
 ```bash
 rm -rf novaspec .claude .docs
-rm -f CLAUDE.md notes.md
+rm -f AGENTS.md notes.md
 ```
 
 > Esto borra también toda la memoria arquitectónica (`.docs/`). Si
