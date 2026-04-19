@@ -90,10 +90,9 @@ Ticket Jira
 │   ├── skills   -> ../.spec/skills
 │   └── agents   -> ../.spec/agents
 │
-└── .docs/                       Memoria arquitectónica y specs
+└── .docs/                       Memoria arquitectónica
     ├── adr/                     Architectural Decision Records
     ├── services/                CONTEXT.md + decisions + incidents por servicio
-    ├── specs/                   Source of truth (specs consolidadas)
     ├── changes/
     │   ├── active/              Specs en curso (tickets abiertos)
     │   └── archive/             Specs archivadas al cerrar ticket
@@ -121,7 +120,7 @@ Ticket Jira
 |---|---|---|
 | **Sesión** | Contexto de Claude Code | Horas |
 | **Proyecto** | `.docs/changes/active/<ticket>/` | Semanas |
-| **Sistema** | `.docs/adr/`, `.docs/services/`, `.docs/specs/` | Años |
+| **Sistema** | `.docs/adr/`, `.docs/services/` | Años |
 | **Organización** | Repo base del framework (plantillas) | Permanente |
 
 La capa de sistema se alimenta automáticamente en `/sdd-wrap`.

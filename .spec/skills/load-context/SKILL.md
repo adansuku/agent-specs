@@ -36,7 +36,7 @@ Si falta archivo, anótalo como "no documentado". Ofrece crearlo al final.
 
 ### 4. Busca ADRs y specs
 
-Escanea `.docs/adr/` y `.docs/specs/`.
+Escanea `.docs/adr/`.
 Si no encuentras nada claro, dilo. No fuerces conexiones.
 
 ### 5. Presenta resumen + preguntas abiertas

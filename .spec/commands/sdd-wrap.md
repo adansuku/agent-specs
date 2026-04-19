@@ -48,7 +48,6 @@ Para cada servicio modificado, invoca skill `update-service-context`.
 
 ### 4. Archivar spec
 
-- Consolida contenido relevante en `.docs/specs/<capability>/`
 - Mueve `.docs/changes/active/<ticket-id>/` → `.docs/changes/archive/<ticket-id>/`
 
 ### 5. Commit
@@ -106,7 +105,6 @@ Crea el PR con `gh pr create --base <base-resuelta> --title "<título>"
 ## Ticket <TICKET-ID> cerrado
 
 - Spec archivada: <ruta>
-- Specs consolidadas: <rutas>
 - ADRs creados: <lista o "ninguno">
 - CONTEXT.md actualizados: <lista o "ninguno">
 - Commits: <número>

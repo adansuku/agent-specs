@@ -8,8 +8,7 @@ Antes de empezar cualquier ticket, carga el contexto relevante:
 
 1. `.docs/services/<servicio>/CONTEXT.md` — qué hace cada servicio
 2. `.docs/adr/` — decisiones arquitectónicas vigentes
-3. `.docs/specs/` — specs consolidadas (source of truth)
-4. `.docs/glossary.md` — términos del dominio
+3. `.docs/glossary.md` — términos del dominio
 
 ## Flujo de trabajo
 

@@ -27,7 +27,7 @@ cp -R "$SCRIPT_DIR/.spec" .
 cp "$SCRIPT_DIR/CLAUDE.md" ./CLAUDE.md
 
 # Memoria arquitectónica: estructura y archivos vacíos (no toca los existentes)
-mkdir -p .docs/{adr,services,post-mortems,specs,changes/{active,archive}}
+mkdir -p .docs/{adr,services,post-mortems,changes/{active,archive}}
 touch .docs/glossary.md
 touch .docs/changes/active/.gitkeep
 touch notes.md
