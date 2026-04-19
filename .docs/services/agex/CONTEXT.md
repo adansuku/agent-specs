@@ -44,8 +44,8 @@ a través del symlink `.claude/commands → ../novaspec/commands`.
 - `nova-start.md` — orquestador de inicio; clasifica el ticket y crea rama
 - `nova-spec.md` — usa la skill `close-requirement`; genera `proposal.md`
 - `nova-plan.md` — genera `plan.md` y `tasks.md` a partir de la spec
-- `nova-build.md` — ejecuta `tasks.md` tarea a tarea con review incremental
-- `nova-review.md` — revisa en 4 ejes: spec, convenciones, ADRs, riesgos
+- `nova-build.md` — ejecuta `tasks.md` en secuencia; para solo ante bloqueantes o decisiones no cerradas
+- `nova-review.md` — lanza el agente `nova-review-agent` con el ticket-id; muestra el veredicto
 - `nova-wrap.md` — alimenta memoria, archiva spec, crea commit y PR
 - `nova-status.md` — comando de solo lectura; infiere y reporta el estado actual de un ticket
 
@@ -94,7 +94,8 @@ tampoco existe, pregunta al usuario recomendando fijarla en `config.yml`.
 
 ### Agentes (`novaspec/agents/`)
 
-Directorio vacío reservado para sub-agentes futuros.
+Contiene agentes que ejecutan operaciones pesadas en contexto aislado.
+Primer agente: `nova-review-agent.md` (code review completo).
 
 ### Guardrails (`novaspec/guardrails/`)
 

@@ -8,59 +8,28 @@ Revisor final antes de cerrar el ticket.
 
 `checklist.md` → 1, 4 (branch-pattern, all-tasks-done)
 
-## Precondición
-
-- Todas las tareas de `tasks.md` marcadas `[x]`
-- Rama del ticket con cambios sin commitear
-
 ## Pasos
 
-### 1. Preparar el review
+### 1. Obtener ticket-id
 
-Lee:
-- `.docs/changes/active/<ticket-id>/proposal.md`
-- `.docs/changes/active/<ticket-id>/plan.md`
-- `.docs/changes/active/<ticket-id>/tasks.md`
-- ADRs relevantes en `.docs/adr/`
-- Diff de los cambios
+Lee la rama actual (`git branch --show-current`) y extrae `<ticket-id>`
+del patrón `{type}/{ticket}-{slug}`.
 
-### 2. Ejecutar review en 4 ejes
+### 2. Lanzar el agente
 
-**Cumplimiento de spec**
-- ¿Implementa lo descrito?
-- ¿Cubre todos los criterios?
-- ¿Desviaciones sin justificar?
+Invoca el agente `novaspec/agents/nova-review-agent.md` pasando `<ticket-id>`
+como argumento. Espera a que termine.
 
-**Convenciones**
-- ¿Estilo del código circundante?
-- ¿Nombres según convención?
-- ¿Dead code, prints, imports sobrantes?
+### 3. Resumen
 
-**ADRs**
-- ¿Contradice algún ADR vigente?
-- Violación sin justificar → **BLOQUEANTE**
+Muestra al usuario el veredicto devuelto por el agente.
 
-**Riesgos**
-- ¿Efectos colaterales no previstos?
-- ¿Falta el safety net del plan?
-
-### 3. Reporte
-
-Usa la estructura de `novaspec/templates/review.md` como plantilla.
-Ajusta el veredicto: `✓ Listo para /nova-wrap` o `✗ Requiere ajustes`.
-
-**Persiste el reporte**: escribe el reporte completo (con el veredicto
-incluido) en `.docs/changes/active/<ticket-id>/review.md`. Este archivo es
-leído por `/nova-wrap` para verificar que el review fue aprobado.
-
-### 4. Checkpoint humano
-
-Si hay bloqueantes → pide resolverlos.
-Si no → "Review OK. Ejecuta `/nova-wrap`."
+- Si `✓` → "Review OK. Ejecuta `/nova-wrap`."
+- Si `✗` → "Review con bloqueantes. Revisa `.docs/changes/active/<ticket-id>/review.md`
+  y corrígelos antes de `/nova-wrap`."
 
 ## Reglas
 
-- No modifiques código aquí.
-- Cita archivo y línea al señalar problemas.
-- Violación de ADR sin justificar siempre es bloqueante.
-- No propongas cambios fuera del alcance.
+- No leas diff, spec ni ADRs aquí. Eso es responsabilidad del agente.
+- No modifiques código.
+- No avances a `/nova-wrap` si el agente reporta bloqueantes.
