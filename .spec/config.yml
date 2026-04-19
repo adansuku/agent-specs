@@ -1,8 +1,0 @@
-# libnova.spec — configuración del framework
-branch:
-  pattern: "{type}/{ticket}-{slug}"
-  types:
-    quick-fix: fix
-    feature: feature
-    architecture: arch
-  ticket_case: upper    # upper | lower

@@ -1,0 +1,1 @@
+→ Ver AGENTS.md para instrucciones del proyecto.

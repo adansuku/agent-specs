@@ -1,0 +1,8 @@
+# Tareas: AGEX-009
+
+- [x] 1. Characterization snapshot — ejecutar `install.sh` actual en `/tmp/agex-snapshot-baseline/`, capturar lista de archivos, hashes `sha256sum`, exit code, stdout/stderr y targets de symlinks. Guardar todo en `/tmp/agex-snapshot-baseline.txt` para referencia.
+- [x] 2. Reescribir `install.sh` — sustituir los 10 heredocs por `cp -r "$SCRIPT_DIR/.spec" .` + `cp "$SCRIPT_DIR/CLAUDE.md" .`. Preservar shebang, `set -e`, mkdirs de `.docs/`, archivos vacíos (`notes.md`, `glossary.md`, `changes/active/.gitkeep`), symlinks de `.claude/`, echos iniciales y finales con mensaje "agex". Añadir guard: si `[ ! -d "$SCRIPT_DIR/.spec" ]` → `echo "✗ No encuentro..."` + `exit 1`.
+- [x] 3. Smoke test + diff contra baseline — ejecutar nuevo `install.sh` en `/tmp/agex-smoke-new/`, comparar archivos + hashes con el snapshot de tarea 1. Debe coincidir en todo salvo (posible) orden de creación si hubiera timestamps (no los hay).
+- [x] 4. Actualizar `INSTALL.md` — reescribir sección "Instalación rápida" (paso 2 "Copiar install.sh" → "Clonar agex", paso 3 sin cambios) y sección "Actualización del framework". Añadir nota sobre `SCRIPT_DIR`.
+- [x] 5. Verificación final — ejecutar los 3 greps del criterio (`wc -l`, heredocs=0, `cp -r`≥1), test anti-drift (editar `.spec/commands/sdd-start.md`, re-instalar, comprobar cambio, revertir edición), test fallo controlado (copiar `install.sh` a `/tmp/orphan/` sin `.spec/` hermano, ejecutar, esperar exit ≠ 0 + mensaje).
+- [x] 6. Resolver B1 — añadir guard `[ "$SCRIPT_DIR" = "$PWD" ]` en `install.sh` para evitar que `rm -rf .spec` destruya la fuente cuando se ejecuta desde el propio repo agex. Verificar con test dedicado: ejecutar desde `$SCRIPT_DIR` → exit ≠ 0 + mensaje + `.spec/` intacto.
