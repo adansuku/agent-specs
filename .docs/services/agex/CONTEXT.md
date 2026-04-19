@@ -81,6 +81,27 @@ tampoco existe, pregunta al usuario recomendando fijarla en `config.yml`.
 
 Directorio vacío reservado para sub-agentes futuros.
 
+### Guardrails (`.spec/guardrails/`)
+
+Archivos Markdown compartidos que los comandos referencian por ruta para
+validar precondiciones antes de ejecutarse. Cada archivo es autocontenido
+(título, qué comprueba, mensaje `⛔ Guardrail: ...` si falla y comando de
+recuperación). Los comandos los componen en orden:
+
+- `branch-pattern.md` — detecta rama de ticket activa; extrae `<ticket-id>`.
+- `proposal-exists.md` — verifica `proposal.md` (usado por `/sdd-plan`).
+- `plan-and-tasks-exist.md` — verifica `plan.md` y `tasks.md`; respeta la
+  excepción `quick-fix` (usado por `/sdd-do`).
+- `all-tasks-done.md` — verifica que `tasks.md` no tiene `- [ ]` pendientes
+  (usado por `/sdd-review`).
+- `review-approved.md` — verifica `review.md` existe y contiene la línea
+  `✓ Listo para /sdd-wrap` (usado por `/sdd-wrap`).
+
+Elegido sobre (a) skill parametrizable — las skills se invocan no
+deterministicamente por el modelo — y (b) hook en `settings.json` —
+determinista pero añade bash imperativo y no se distribuye con `install.sh`.
+Introducido en AGEX-010.
+
 ## Dependencias
 
 ### De las que depende
@@ -189,4 +210,4 @@ de `active/` a `archive/`.
 
 ## Última actualización
 
-2026-04-19 — AGEX-009
+2026-04-19 — AGEX-010

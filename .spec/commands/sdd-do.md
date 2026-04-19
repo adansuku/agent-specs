@@ -6,31 +6,14 @@ Ejecutas `tasks.md` en orden, tarea a tarea.
 
 ## Guardrail
 
-**Ejecuta esto antes de cualquier otro paso.**
+**Ejecuta esto antes de cualquier otro paso.** Aplica en orden los
+siguientes guardrails del framework (cada uno vive en su archivo y define
+su propio mensaje de error + comando de recuperación):
 
-1. Lee la rama git actual y extrae el `<ticket-id>`.
-   Si la rama no sigue el patrón `(feature|fix|arch)/<TICKET>-<slug>`:
-
-   ```
-   ⛔ Guardrail: no hay rama de ticket activa.
-   Ejecuta /sdd-start <TICKET> primero.
-   ```
-   **Para aquí. No sigas.**
-
-2. Comprueba si la rama empieza por `fix/` (quick-fix).
-   - Si **no es quick-fix**: comprueba que existen
-     `.docs/changes/active/<ticket-id>/plan.md` y
-     `.docs/changes/active/<ticket-id>/tasks.md`.
-     Si falta alguno:
-
-     ```
-     ⛔ Guardrail: no existe plan.md o tasks.md para <ticket-id>.
-     Ejecuta /sdd-plan primero.
-     ```
-     **Para aquí. No sigas.**
-
-   - Si **es quick-fix**: puedes continuar aunque no existan
-     `plan.md` ni `tasks.md`. Salta directamente al paso 4.
+1. `.spec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
+2. `.spec/guardrails/plan-and-tasks-exist.md` — verifica `plan.md` y
+   `tasks.md`; respeta la excepción quick-fix (rama `fix/` salta al
+   paso 4 de los pasos principales, implementación directa).
 
 ## Precondición
 

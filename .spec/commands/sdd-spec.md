@@ -6,21 +6,11 @@ Eres el encargado de generar la spec técnica del ticket actual.
 
 ## Guardrail
 
-**Ejecuta esto antes de cualquier otro paso.**
+**Ejecuta esto antes de cualquier otro paso.** Aplica en orden los
+siguientes guardrails del framework (cada uno vive en su archivo y define
+su propio mensaje de error + comando de recuperación):
 
-1. Lee la rama git actual (`git branch --show-current`).
-2. Comprueba que sigue el patrón `(feature|fix|arch)/<TICKET>-<slug>`
-   definido en `.spec/config.yml`.
-3. Si la rama es `main`, `master`, `claude/*` u otra sin patrón de ticket:
-
-   ```
-   ⛔ Guardrail: no hay rama de ticket activa.
-   Ejecuta /sdd-start <TICKET> primero.
-   ```
-   **Para aquí. No sigas.**
-
-4. Si la rama sigue el patrón, extrae el `<TICKET>` del nombre de rama
-   y úsalo como ticket-id para el resto del comando.
+1. `.spec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
 
 ## Precondición
 

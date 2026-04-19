@@ -6,36 +6,13 @@ Revisor final antes de cerrar el ticket.
 
 ## Guardrail
 
-**Ejecuta esto antes de cualquier otro paso.**
+**Ejecuta esto antes de cualquier otro paso.** Aplica en orden los
+siguientes guardrails del framework (cada uno vive en su archivo y define
+su propio mensaje de error + comando de recuperación):
 
-1. Lee la rama git actual y extrae el `<ticket-id>`.
-   Si la rama no sigue el patrón `(feature|fix|arch)/<TICKET>-<slug>`:
-
-   ```
-   ⛔ Guardrail: no hay rama de ticket activa.
-   Ejecuta /sdd-start <TICKET> primero.
-   ```
-   **Para aquí. No sigas.**
-
-2. Comprueba si es quick-fix (rama `fix/`) y si existe
-   `.docs/changes/active/<ticket-id>/tasks.md`.
-   - Si **existe `tasks.md`**: comprueba que no quede ningún `- [ ]`
-     sin marcar. Si quedan tareas pendientes:
-
-     ```
-     ⛔ Guardrail: hay N tarea(s) sin completar en tasks.md.
-     Ejecuta /sdd-do para completarlas primero.
-     ```
-     **Para aquí. No sigas.**
-
-   - Si **no existe `tasks.md`** y es quick-fix: continúa.
-   - Si **no existe `tasks.md`** y no es quick-fix:
-
-     ```
-     ⛔ Guardrail: no existe tasks.md para <ticket-id>.
-     Ejecuta /sdd-plan primero.
-     ```
-     **Para aquí. No sigas.**
+1. `.spec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
+2. `.spec/guardrails/all-tasks-done.md` — verifica que `tasks.md` no tiene
+   `- [ ]` pendientes; respeta la excepción quick-fix sin `tasks.md`.
 
 ## Precondición
 

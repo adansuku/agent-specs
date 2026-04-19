@@ -6,25 +6,12 @@ Traduces la spec en un plan ejecutable.
 
 ## Guardrail
 
-**Ejecuta esto antes de cualquier otro paso.**
+**Ejecuta esto antes de cualquier otro paso.** Aplica en orden los
+siguientes guardrails del framework (cada uno vive en su archivo y define
+su propio mensaje de error + comando de recuperación):
 
-1. Lee la rama git actual y extrae el `<ticket-id>`.
-   Si la rama no sigue el patrón `(feature|fix|arch)/<TICKET>-<slug>`:
-
-   ```
-   ⛔ Guardrail: no hay rama de ticket activa.
-   Ejecuta /sdd-start <TICKET> primero.
-   ```
-   **Para aquí. No sigas.**
-
-2. Comprueba que existe `.docs/changes/active/<ticket-id>/proposal.md`.
-   Si no existe:
-
-   ```
-   ⛔ Guardrail: no existe proposal.md para <ticket-id>.
-   Ejecuta /sdd-spec primero.
-   ```
-   **Para aquí. No sigas.**
+1. `.spec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
+2. `.spec/guardrails/proposal-exists.md` — verifica `proposal.md`.
 
 ## Precondición
 

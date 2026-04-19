@@ -7,35 +7,13 @@ Este es el paso que alimenta la memoria arquitectónica.
 
 ## Guardrail
 
-**Ejecuta esto antes de cualquier otro paso.**
+**Ejecuta esto antes de cualquier otro paso.** Aplica en orden los
+siguientes guardrails del framework (cada uno vive en su archivo y define
+su propio mensaje de error + comando de recuperación):
 
-1. Lee la rama git actual y extrae el `<ticket-id>`.
-   Si la rama no sigue el patrón `(feature|fix|arch)/<TICKET>-<slug>`:
-
-   ```
-   ⛔ Guardrail: no hay rama de ticket activa.
-   Ejecuta /sdd-start <TICKET> primero.
-   ```
-   **Para aquí. No sigas.**
-
-2. Comprueba que existe `.docs/changes/active/<ticket-id>/review.md`.
-   Si no existe:
-
-   ```
-   ⛔ Guardrail: no existe review.md para <ticket-id>.
-   Ejecuta /sdd-review primero.
-   ```
-   **Para aquí. No sigas.**
-
-3. Lee `.docs/changes/active/<ticket-id>/review.md` y busca la línea
+1. `.spec/guardrails/branch-pattern.md` — extrae `<ticket-id>` de la rama.
+2. `.spec/guardrails/review-approved.md` — verifica `review.md` y la línea
    `✓ Listo para /sdd-wrap`.
-   Si no aparece esa línea:
-
-   ```
-   ⛔ Guardrail: el review de <ticket-id> no tiene veredicto ✓.
-   Resuelve los bloqueantes y vuelve a ejecutar /sdd-review.
-   ```
-   **Para aquí. No sigas.**
 
 ## Precondición
 
