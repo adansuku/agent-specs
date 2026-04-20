@@ -10,7 +10,7 @@ branch:
     chore: chore
     architecture: arch
   ticket_case: upper    # upper | lower
-  base: main            # rama base del flujo (checkout en /nova-start, --base en /nova-wrap)
+  base: develop            # rama base del flujo (checkout en /nova-start, --base en /nova-wrap)
 
 jira:
   skill: jira-integration         # nombre de la skill para bajar tickets; déjalo vacío para deshabilitar

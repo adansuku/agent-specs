@@ -1,6 +1,6 @@
 # Guardrails — Checklist
 
-**Orden de ejecución: 1 → 2 → 3 → 4 → 5**
+**Orden de ejecución: 1 → 2 → 3 → 4 → 5 → 6**
 
 ## 1. branch-pattern
 Verifica rama de ticket activa. Extrae `<ticket-id>` de la rama git actual.
@@ -27,3 +27,8 @@ Verifica tareas completadas. Excepción quick-fix sin `tasks.md`.
 Verifica review aprobado.
 - Debe existir `review.md` con línea `✓ Listo para /nova-wrap`.
 - ⛔ **Para.** Ejecuta `/nova-review` primero.
+
+## 6. old-decision-archived
+Valida que las decisiones reemplazadas estén archivadas. Ver `novaspec/guardrails/old-decision-archived.md`.
+- Archivos en `context/decisions/*.md` con `> Supersedes: X.md` implican que `X.md` vive en `context/decisions/archived/`, no en la raíz.
+- ⛔ **Para.** Mueve el archivo a `archived/` con `git mv` y reintenta.

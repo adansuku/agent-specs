@@ -26,14 +26,14 @@ Lee `novaspec/config.yml` → `jira.skill`.
 
 - **quick-fix**: bug menor, typo, config. < 2h. No requiere spec formal.
 - **feature**: funcionalidad acotada, refactor de módulo. 2h-3d. Flujo completo.
-- **architecture**: migración, rewrite, decisión de calado. > 3d. Requiere ADR.
+- **architecture**: migración, rewrite, decisión de calado. > 3d. Requiere decisión documentada.
 
 Si dudas entre dos, elige la más conservadora.
 Declara tu clasificación con razonamiento breve.
 
 ### 3. Identificar servicios afectados
 
-Deduce qué servicios toca el ticket (`context/services/<nombre>/`).
+Deduce qué servicios toca el ticket (`context/services/<nombre>.md`).
 Si no está claro, pregunta con opciones concretas.
 
 ### 4. Crear rama de git
@@ -73,7 +73,7 @@ como plantilla.
 Próximo paso:
 - quick-fix → `/nova-build`
 - feature → `/nova-spec`
-- architecture → `/nova-spec` (avisa: requerirá ADR en /nova-wrap)
+- architecture → `/nova-spec` (avisa: requerirá decisión documentada en /nova-wrap)
 
 ## Reglas
 

@@ -15,7 +15,7 @@ Framework that orchestrates ticket-to-PR workflow with 7 slash commands: `/nova-
 - `/nova-plan` — create plan + tasks
 - `/nova-build` — execute tasks one-by-one
 - `/nova-review` — final code review
-- `/nova-wrap` — commit, PR, update memory (uses `write-adr`, `update-service-context`)
+- `/nova-wrap` — commit, PR, update memory (uses `write-decision`, `update-service-context`)
 
 Quick-fixes skip `/nova-spec` and `/nova-plan`.
 
@@ -30,13 +30,17 @@ In `novaspec/config.yml`:
 
 ```
 context/
-├── adr/                    # Architectural Decision Records
-├── services/                # Per-service CONTEXT.md
+├── decisions/              # Por qué hicimos X (un archivo por decisión)
+│   └── archived/           # Superseded (nunca auto-leído por agentes)
+├── gotchas/                # Trampas no obvias en el código
+├── services/               # Mapa corto por servicio (≤80 líneas, archivos planos)
 ├── changes/
-│   ├── active/             # Active ticket specs
-│   └── archive/            # Closed ticket specs
-└── glossary.md            # Domain terms
+│   ├── active/             # Specs en curso
+│   └── archive/            # Specs cerradas
+└── backlog/                # Propuestas pendientes
 ```
+
+Modelo de memoria → `context/decisions/memoria-sencilla.md`. Regla: la sabiduría sobre memoria vive en `decisions/`, no en `AGENTS.md`.
 
 ## Symlinks
 

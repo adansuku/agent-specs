@@ -1,4 +1,4 @@
-# ADR-0001: `install.sh` copia desde la fuente en vez de embeber heredocs
+# `install.sh` copia desde la fuente en vez de embeber heredocs
 
 **Fecha**: 2026-04-19
 **Estado**: Aceptada

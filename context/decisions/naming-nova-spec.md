@@ -1,4 +1,4 @@
-# ADR-0002: Renombrar framework a nova-spec con comandos /nova-*
+# Renombrar framework a nova-spec con comandos /nova-*
 
 **Fecha**: 2026-04-19
 **Estado**: Aceptada

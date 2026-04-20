@@ -15,15 +15,18 @@ Quick-fix: `/nova-start` → `/nova-build` → `/nova-wrap`
 ## Estructura
 
 ```
-├── novaspec/        # Framework
-│   ├── commands/  # /nova-*
-│   ├── skills/     # Auto-loaded
+├── novaspec/          # Framework
+│   ├── commands/      # /nova-*
+│   ├── skills/        # Auto-loaded
+│   ├── agents/        # Subagents
+│   ├── guardrails/    # Shared pre-conditions
 │   └── templates/
 ├── context/
-│   ├── adr/       # ADRs
-│   ├── services/  # CONTEXT.md
-│   └── changes/   # Active/archive specs
-└── AGENTS.md      # Project instructions
+│   ├── decisions/     # Un hecho por archivo; archived/ no se auto-lee
+│   ├── gotchas/       # Trampas no obvias
+│   ├── services/      # <svc>.md planos, ≤80 líneas
+│   └── changes/       # Specs active/archive
+└── AGENTS.md          # Project instructions
 ```
 
 ## Reglas

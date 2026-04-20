@@ -10,9 +10,9 @@ Transforma ticket vago en requisito con decisiones cerradas.
 ## Contexto previo
 
 Lee antes de preguntar:
-- `context/services/<servicio>/CONTEXT.md`
-- `context/adr/`
-- `context/glossary.md`
+- `context/services/<servicio>.md`
+- 3-5 archivos de `context/decisions/` cuyo nombre sea relevante al ticket (nunca `archived/`)
+- Archivos de `context/gotchas/` relevantes, si alguno
 
 ## Pasos
 

@@ -24,8 +24,10 @@ Ticket → /nova-start → /nova-spec → /nova-plan
 |------|-------|-------|
 | Sesión | Contexto de Claude Code | Horas |
 | Proyecto | `context/changes/active/` | Semanas |
-| Sistema | `context/adr/`, `context/services/` | Años |
+| Sistema | `context/decisions/`, `context/gotchas/`, `context/services/` | Años |
 | Org | Repo base (plantillas) | Permanente |
+
+Modelo de memoria: un hecho → un archivo, nombre = índice, supersede explícito (`git mv` a `decisions/archived/`), presupuesto `load-context` ≤ 3000 tokens. Ver `context/decisions/memoria-sencilla.md`.
 
 ## Clasificación de tickets
 
@@ -33,7 +35,7 @@ Ticket → /nova-start → /nova-spec → /nova-plan
 |------|-------|-------|
 | quick-fix | Bug < 2h | start→build→wrap |
 | feature | Funcionalidad 2h-3d | Completo |
-| architecture | Rewrite > 3d | Completo + ADR obligatorio |
+| architecture | Rewrite > 3d | Completo + decisión documentada en `context/decisions/` |
 
 ## No negociables
 

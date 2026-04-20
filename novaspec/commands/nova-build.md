@@ -67,4 +67,4 @@ Muestra al usuario:
 - Para solo si hay un bloqueante o decisión abierta.
 - Si una tarea es más grande de lo previsto, para y reporta.
 - No hagas commit aquí (eso es `/nova-wrap`).
-- No actualices `context/adr/` ni `context/services/` aquí.
+- No actualices `context/decisions/` ni `context/services/` aquí (eso es `/nova-wrap`).

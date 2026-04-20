@@ -17,7 +17,7 @@ usuario. No hagas commits. No modifiques código.
   - `context/changes/active/<ticket-id>/proposal.md`
   - `context/changes/active/<ticket-id>/plan.md`
   - `context/changes/active/<ticket-id>/tasks.md`
-- Lee ADRs en `context/adr/` (todos los relevantes)
+- Lee decisiones vivas en `context/decisions/` (todas las relevantes, **sin entrar en `archived/`**)
 - Obtén el diff completo combinando:
   - Cambios commiteados en la rama: `git diff <branch.base>...HEAD`
   - Cambios sin commitear (working tree + staged): `git diff HEAD`
@@ -41,8 +41,8 @@ Si algún artefacto no existe, termina con:
 - ¿Nombres según convención del repo?
 - ¿Dead code, prints o imports sobrantes?
 
-**ADRs**
-- ¿El cambio contradice algún ADR vigente?
+**Decisiones**
+- ¿El cambio contradice alguna decisión viva (`context/decisions/*.md`, excluyendo `archived/`)?
 - Violación sin justificar → marcar como **BLOQUEANTE**
 
 **Riesgos**
@@ -70,6 +70,6 @@ Review completado. Veredicto: <✓ Listo para /nova-wrap | ✗ Requiere ajustes:
 
 - No modifiques código.
 - Cita archivo y línea al señalar problemas.
-- Violación de ADR sin justificar siempre es bloqueante.
+- Violación de decisión viva sin justificar siempre es bloqueante.
 - No propongas cambios fuera del alcance de la spec.
 - No escribas nada más allá del mensaje de terminación.

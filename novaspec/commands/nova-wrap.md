@@ -7,7 +7,7 @@ Este es el paso que alimenta la memoria arquitectónica.
 
 ## Guardrail
 
-`checklist.md` → 1, 5 (branch-pattern, review-approved)
+`checklist.md` → 1, 5, 6 (branch-pattern, review-approved, old-decision-archived)
 
 ## Precondición
 
@@ -18,27 +18,30 @@ Este es el paso que alimenta la memoria arquitectónica.
 
 ### 1. Detectar decisión arquitectónica
 
-Si se tomó una decisión relevante, invoca skill `write-adr`.
+Si se tomó una decisión real con alternativa y trade-off, invoca skill `write-decision`.
 
-> "¿Documentamos esta decisión como ADR?
->  - Sí, crear ADR-NNNN
->  - No, es menor
->  - Ya existe: ADR-NNNN"
+> "¿Documentamos esta decisión?
+>  - Sí, crear `context/decisions/<concept>.md`
+>  - No, no hay alternativa real / es cosmética
+>  - Supersede una decisión existente → nombre del archivo viejo"
 
-### 2. Actualizar CONTEXT.md
+Si supersede: nuevo archivo incluye `> Supersedes: <viejo>.md` y ejecuta `git mv context/decisions/<viejo>.md context/decisions/archived/<viejo>.md`. El guardrail #6 valida esta invariante.
 
-Para cada servicio modificado, invoca skill `update-service-context`.
+### 2. Actualizar servicio
 
-> "¿Ha cambiado el comportamiento del servicio X?
->  - Sí, actualizar CONTEXT.md
+Para cada servicio modificado cuya interfaz pública cambió, invoca skill `update-service-context`.
+
+> "¿Ha cambiado la interfaz pública del servicio X?
+>  - Sí, reescribir `context/services/<svc>.md` (≤80 líneas, reemplazar, no acumular)
 >  - No, cambio interno sin impacto externo"
 
-### 3. Otros rastros
+### 3. Gotcha descubierto
 
-> "¿Añadimos algo a...?
->  - decisions.md del servicio
->  - incidents.md del servicio
->  - glossary.md"
+> "¿Has descubierto durante el build algo contraintuitivo que otra persona redescubriría?
+>  - Sí → añadir `context/gotchas/<concept>.md` (atómico, breve)
+>  - No"
+
+Default: no escribir. La mayoría de tickets no genera gotcha.
 
 ### 4. Archivar spec
 
@@ -84,8 +87,9 @@ Confirmar al usuario: "Ticket <TICKET-ID> marcado como Listo en Jira ✓"
 ## Ticket <TICKET-ID> cerrado
 
 - Spec archivada: <ruta>
-- ADRs creados: <lista o "ninguno">
-- CONTEXT.md actualizados: <lista o "ninguno">
+- Decisions creadas: <lista o "ninguna">
+- Gotchas añadidas: <lista o "ninguna">
+- Services actualizados: <lista o "ninguno">
 - Commits: <número>
 - PR: <link>
 - Jira: <TICKET-ID> → Listo ✓ (o "Jira no configurado")

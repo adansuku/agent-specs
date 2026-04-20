@@ -1,4 +1,4 @@
-# ADR-0003: Patrón de subagentes para operaciones pesadas
+# Patrón de subagentes para operaciones pesadas
 
 **Fecha**: 2026-04-19
 **Estado**: Aceptada
@@ -28,7 +28,7 @@ el output útil (resumen, veredicto, etc.).
 | Aspecto | Regla |
 |---|---|
 | Ubicación | `novaspec/agents/<nombre>-agent.md` o `novaspec/agents/<nombre>.md` |
-| Naming | kebab-case (ADR-0002) |
+| Naming | kebab-case (ver `decisions/naming-nova-spec.md`) |
 | Input | Mínimo necesario: ticket-id, lista de servicios, etc. |
 | Output | Solo el resultado útil: resumen, veredicto, texto estructurado |
 | Escritura en disco | Permitida si el output es un artefacto del flujo (ej. `review.md`) |
