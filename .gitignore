@@ -3,3 +3,7 @@ context/backlog/*
 .opencode/*
 .env
 novaspec/config.yml
+notes.md
+.DS_Store
+*.swp
+*.swo

@@ -3,4 +3,4 @@
 <cuerpo opcional>
 
 Refs: <TICKET-ID>
-ADRs: <ADR-NNNN si aplica>
+Decisiones: <context/decisions/<archivo>.md si aplica>

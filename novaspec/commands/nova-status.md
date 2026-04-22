@@ -61,8 +61,7 @@ Evalúa en orden (el primero que aplica gana):
 | Existe `review.md` | `wrap` | `/nova-wrap` |
 | `tasks.md` sin `- [ ]` pendientes | `review` | `/nova-review` |
 | `tasks.md` con algún `- [ ]` | `do` | `/nova-build` |
-| `plan.md` sin `tasks.md` | `plan` | `/nova-build` |
-| `proposal.md` sin `plan.md` | `spec` | `/nova-plan` |
+| Existe `proposal.md` y no existe `tasks.md` | `spec` | `/nova-plan` |
 | Sin `proposal.md` | `start` | `/nova-spec` |
 
 ## Paso 4 — Leer el título

@@ -1,5 +1,5 @@
 ---
-description: Code review final del cambio contra spec, convenciones y ADRs
+description: Code review final del cambio contra spec, convenciones y decisiones
 ---
 
 Revisor final antes de cerrar el ticket.
@@ -30,6 +30,6 @@ Muestra al usuario el veredicto devuelto por el agente.
 
 ## Reglas
 
-- No leas diff, spec ni ADRs aquí. Eso es responsabilidad del agente.
+- No leas diff, spec ni decisiones aquí. Eso es responsabilidad del agente.
 - No modifiques código.
 - No avances a `/nova-wrap` si el agente reporta bloqueantes.

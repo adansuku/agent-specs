@@ -5,7 +5,6 @@
 #
 # Uso: bash install.sh [opciones]
 #   -t, --target    claude|opencode  Destino (prompt si no se especifica)
-#   -w, --worktrees             Crear worktrees (solo Claude Code)
 #   -h, --help               Mostrar ayuda
 #
 # Sin opciones: modo interactivo
@@ -22,7 +21,6 @@ NC='\033[0m' # No Color
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 TARGET=""
-WORKTREES=false
 
 # Parsear argumentos
 while [[ $# -gt 0 ]]; do
@@ -31,16 +29,11 @@ while [[ $# -gt 0 ]]; do
       TARGET="$2"
       shift 2
       ;;
-    -w|--worktrees)
-      WORKTREES=true
-      shift
-      ;;
     -h|--help)
       echo "Uso: $0 [opciones]"
       echo ""
       echo "Opciones:"
       echo "  -t, --target DESTINO  Destino: claude|opencode"
-      echo "  -w, --worktrees     Crear worktrees (solo Claude Code)"
       echo "  -h, --help        Mostrar esta ayuda"
       echo ""
       echo "Sin opciones: modo interactivo"
@@ -129,15 +122,32 @@ if [[ -z "$TARGET" ]]; then
       ;;
   esac
 
-  if [[ "$TARGET" == "claude" ]]; then
-    echo ""
-    read -p "¿Crear worktrees para múltiples tickets? (y/N) " -n 1 confirm
-    echo ""
-    if [[ "$confirm" =~ ^[Yy]$ ]]; then
-      WORKTREES=true
-    fi
-  fi
 fi
+
+# Añade reglas de ignore de forma idempotente (sin pisar un .gitignore existente).
+ensure_gitignore() {
+  local file=".gitignore"
+  local begin="# nova-spec (local)"
+  local end="# /nova-spec"
+
+  if [[ -f "$file" ]] && grep -Fq "$begin" "$file"; then
+    return 0
+  fi
+
+  cat >> "$file" << 'EOF'
+
+# nova-spec (local)
+novaspec/config.yml
+.env
+notes.md
+.opencode/settings.local.json
+.opencode/node_modules/
+.DS_Store
+*.swp
+*.swo
+# /nova-spec
+EOF
+}
 
 # Validar TARGET
 if [[ "$TARGET" != "claude" ]] && [[ "$TARGET" != "opencode" ]]; then
@@ -155,16 +165,26 @@ echo ""
 #
 if [[ "$TARGET" == "claude" ]]; then
   echo -e "${YELLOW}[1/6] Copiando novaspec/${NC}"
+  DEST_CONFIG_BACKUP=""
+  if [[ -f novaspec/config.yml ]]; then
+    DEST_CONFIG_BACKUP=$(mktemp)
+    cp novaspec/config.yml "$DEST_CONFIG_BACKUP"
+  fi
   rm -rf novaspec
   cp -R "$SCRIPT_DIR/novaspec" .
+  rm -f novaspec/config.yml  # nunca distribuir el config del maintainer
+  if [[ -n "$DEST_CONFIG_BACKUP" ]]; then
+    mv "$DEST_CONFIG_BACKUP" novaspec/config.yml
+  elif [[ -f novaspec/config.example.yml ]]; then
+    cp novaspec/config.example.yml novaspec/config.yml
+  fi
 
   echo -e "${YELLOW}[2/6] Copiando AGENTS.md${NC}"
   cp "$SCRIPT_DIR/AGENTS.md" ./AGENTS.md
   cp "$SCRIPT_DIR/CLAUDE.md" ./CLAUDE.md
 
   echo -e "${YELLOW}[3/6] Creando estructura context/${NC}"
-  mkdir -p context/{adr,services,post-mortems,changes/{active,archive}}
-  touch context/glossary.md
+  mkdir -p context/{decisions/archived,gotchas,services,changes/{active,archive}}
   touch context/changes/active/.gitkeep
 
   echo -e "${YELLOW}[4/6] Creando symlinks .claude/${NC}"
@@ -175,13 +195,8 @@ if [[ "$TARGET" == "claude" ]]; then
   [[ -L agents ]]   || ln -s ../novaspec/agents agents
   cd ..
 
-  echo -e "${YELLOW}[5/6] Configurando git worktrees${NC}"
-  mkdir -p .git/worktrees
-  touch .git/worktrees/.gitkeep
-
-  if [[ "$WORKTREES" == true ]]; then
-    echo -e "${YELLOW}  ↳ Worktrees habilitados${NC}"
-  fi
+  echo -e "${YELLOW}[5/6] Asegurando .gitignore${NC}"
+  ensure_gitignore
 
   echo -e "${YELLOW}[6/6] Creando notes.md${NC}"
   touch notes.md
@@ -190,19 +205,29 @@ if [[ "$TARGET" == "claude" ]]; then
 # 安装 para OpenCode
 #
 elif [[ "$TARGET" == "opencode" ]]; then
-  echo -e "${YELLOW}[1/5] Copiando novaspec/${NC}"
+  echo -e "${YELLOW}[1/6] Copiando novaspec/${NC}"
+  DEST_CONFIG_BACKUP=""
+  if [[ -f novaspec/config.yml ]]; then
+    DEST_CONFIG_BACKUP=$(mktemp)
+    cp novaspec/config.yml "$DEST_CONFIG_BACKUP"
+  fi
   rm -rf novaspec
   cp -R "$SCRIPT_DIR/novaspec" .
+  rm -f novaspec/config.yml  # nunca distribuir el config del maintainer
+  if [[ -n "$DEST_CONFIG_BACKUP" ]]; then
+    mv "$DEST_CONFIG_BACKUP" novaspec/config.yml
+  elif [[ -f novaspec/config.example.yml ]]; then
+    cp novaspec/config.example.yml novaspec/config.yml
+  fi
 
-  echo -e "${YELLOW}[2/5] Copiando AGENTS.md${NC}"
+  echo -e "${YELLOW}[2/6] Copiando AGENTS.md${NC}"
   cp "$SCRIPT_DIR/AGENTS.md" ./AGENTS.md
 
-  echo -e "${YELLOW}[3/5] Creando estructura context/${NC}"
-  mkdir -p context/{adr,services,post-mortems,changes/{active,archive}}
-  touch context/glossary.md
+  echo -e "${YELLOW}[3/6] Creando estructura context/${NC}"
+  mkdir -p context/{decisions/archived,gotchas,services,changes/{active,archive}}
   touch context/changes/active/.gitkeep
 
-  echo -e "${YELLOW}[4/5] Creando symlinks .opencode/${NC}"
+  echo -e "${YELLOW}[4/6] Creando symlinks .opencode/${NC}"
   mkdir -p .opencode
   cd .opencode
   [[ -L commands ]] || ln -s ../novaspec/commands commands
@@ -210,7 +235,7 @@ elif [[ "$TARGET" == "opencode" ]]; then
   [[ -L agents ]]   || ln -s ../novaspec/agents agents
   cd ..
 
-  echo -e "${YELLOW}[5/5] Configurando OpenCode${NC}"
+  echo -e "${YELLOW}[5/6] Configurando OpenCode${NC}"
   if [[ ! -f .opencode/settings.local.json ]]; then
     cat > .opencode/settings.local.json << 'EOF'
 {
@@ -223,6 +248,9 @@ elif [[ "$TARGET" == "opencode" ]]; then
 }
 EOF
   fi
+
+  echo -e "${YELLOW}[6/6] Asegurando .gitignore${NC}"
+  ensure_gitignore
 
   touch notes.md
 fi

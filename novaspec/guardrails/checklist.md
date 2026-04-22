@@ -12,10 +12,10 @@ Verifica spec redactada.
 - Debe existir `context/changes/active/<ticket-id>/proposal.md`.
 - ⛔ **Para.** Ejecuta `/nova-spec` primero.
 
-## 3. plan-and-tasks-exist
-Verifica plan y tareas. Excepción quick-fix (rama `fix/`).
-- Si **no quick-fix**: deben existir `plan.md` + `tasks.md`.
-- Si **quick-fix**: puedes continuar sin ellos.
+## 3. tasks-exist
+Verifica tareas. Excepción quick-fix (rama `fix/`).
+- Si **no quick-fix**: debe existir `context/changes/active/<ticket-id>/tasks.md`.
+- Si **quick-fix**: puedes continuar sin `tasks.md`.
 - ⛔ **Para.** Ejecuta `/nova-plan` primero.
 
 ## 4. all-tasks-done

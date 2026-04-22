@@ -33,8 +33,8 @@ Como <actor>, quiero <capacidad>, para <resultado>.
 
 ## Impacto arquitectónico
 - Servicios afectados: <lista>
-- ADRs referenciados: <lista o "ninguno">
-- ¿Requiere ADR nuevo?: sí | no | posible
+- Decisiones referenciadas: <lista o "ninguna">
+- ¿Requiere decisión nueva?: sí | no | posible
 
 ## Verificación sin tests automatizados
 ### Flujo manual

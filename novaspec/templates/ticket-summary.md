@@ -7,8 +7,8 @@
 **Rama creada**: <nombre>
 
 **Contexto cargado**:
-- CONTEXT.md: <lista>
-- ADRs: <lista o "ninguno">
+- Services: <lista>
+- Decisiones: <lista o "ninguna">
 - Specs: <lista o "ninguna">
 - Restricciones clave: <lista>
 

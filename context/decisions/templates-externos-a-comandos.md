@@ -4,7 +4,7 @@
 
 ## Decisión
 
-Los skeletons de formato de los artefactos generados (`proposal.md`, `plan.md`, `tasks.md`, `review.md`, `commit.md`, `pr-body.md`, etc.) viven en `novaspec/templates/*.md`. Los comandos los referencian por ruta en texto.
+Los skeletons de formato de los artefactos generados (`proposal.md`, `tasks.md`, `review.md`, `commit.md`, `pr-body.md`, etc.) viven en `novaspec/templates/*.md`. Los comandos los referencian por ruta en texto.
 
 ## Alternativa descartada
 

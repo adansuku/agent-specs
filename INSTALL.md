@@ -65,22 +65,29 @@ de error y exit distinto de cero.
 ├── novaspec/                       Contenido canónico del framework
 │   ├── config.yml               Convenciones (ramas, tipos de ticket)
 │   ├── commands/                7 slash commands `/nova-*`
-│   ├── skills/                  4 skills autocargadas por contexto
-│   └── agents/                  Vacío, para sub-agents futuros
+│   ├── skills/                  Skills auxiliares (Jira opcional, memoria, etc.)
+│   ├── agents/                  Subagentes (context-loader, review)
+│   ├── guardrails/              Precondiciones compartidas
+│   └── templates/               Plantillas de artefactos (proposal/tasks/review)
 │
 ├── .claude/                     Symlinks para que Claude Code descubra los comandos
 │   ├── commands -> ../novaspec/commands
 │   ├── skills   -> ../novaspec/skills
 │   └── agents   -> ../novaspec/agents
 │
+├── .opencode/                   (solo si instalas para OpenCode)
+│   ├── commands -> ../novaspec/commands
+│   ├── skills   -> ../novaspec/skills
+│   └── agents   -> ../novaspec/agents
+│
 └── context/                       Memoria arquitectónica
-    ├── adr/                     Architectural Decision Records
-    ├── services/                CONTEXT.md por servicio
-    ├── changes/
-    │   ├── active/              Specs en curso (tickets abiertos)
-    │   └── archive/             Specs archivadas al cerrar ticket
-    ├── post-mortems/
-    └── glossary.md              Términos del dominio
+    ├── decisions/               Por qué hicimos X (un hecho por archivo)
+    │   └── archived/            Superseded (no se auto-carga)
+    ├── gotchas/                 Trampas no obvias
+    ├── services/                Un archivo plano por servicio (≤80 líneas)
+    └── changes/
+        ├── active/              Specs en curso (tickets abiertos)
+        └── archive/             Specs archivadas al cerrar ticket
 ```
 
 ---
@@ -158,7 +165,7 @@ otra rama de integración.
 Por cada servicio relevante de tu proyecto, crea:
 
 ```
-context/services/<nombre-servicio>/CONTEXT.md
+context/services/<nombre-servicio>.md
 ```
 
 La skill `update-service-context` te genera la plantilla la primera vez
@@ -166,9 +173,29 @@ que la invocas para un servicio nuevo.
 
 ### Cargar decisiones previas
 
-Si tu proyecto ya tiene decisiones arquitectónicas, documenta las más
-importantes como ADRs en `context/adr/`. La skill `write-adr` te guía con
-el formato.
+Si tu proyecto ya tiene decisiones técnicas relevantes, documéntalas como
+archivos atómicos en `context/decisions/` (nombre = concepto). Si una
+decisión queda obsoleta, crea una nueva con `> Supersedes: <vieja>.md` y
+mueve la vieja a `context/decisions/archived/` con `git mv`.
+
+---
+
+## Qué va a git vs local (recomendado)
+
+En proyectos consumidores, trata `context/` como **coordinación de equipo**
+(va en git) y trata credenciales/config personal como **local**.
+
+**Va en git (recomendado)**:
+- `context/decisions/`, `context/gotchas/`, `context/services/`
+- `context/changes/active/` y `context/changes/archive/` (las specs son coordinación)
+- `novaspec/` (framework instalado)
+- `.claude/` (symlinks a `novaspec/` para que el equipo vea los comandos)
+- `.opencode/agents|commands|skills` (symlinks equivalentes si usas OpenCode)
+
+**Va en local (recomendado)**:
+- `novaspec/config.yml` (contiene Jira/email/token del proyecto)
+- `notes.md`, `.env`
+- `.opencode/settings.local.json`
 
 ---
 
@@ -196,7 +223,7 @@ en `context/changes/`.
 ## Desinstalación
 
 ```bash
-rm -rf novaspec .claude .docs
+rm -rf novaspec .claude .opencode
 rm -f AGENTS.md notes.md
 ```
 

@@ -19,4 +19,4 @@ Un archivo markdown referenciado desde el comando fuerza al modelo a leerlo ante
 
 ## Detalles
 
-Detección basada en: rama git activa con patrón de ticket + existencia de artefactos (`proposal.md`, `plan.md`, `tasks.md`, `review.md`) + estado de checkboxes en `tasks.md`.
+Detección basada en: rama git activa con patrón de ticket + existencia de artefactos (`proposal.md`, `tasks.md`, `review.md`) + estado de checkboxes en `tasks.md`.

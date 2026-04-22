@@ -1,4 +1,4 @@
-# agex (nova-spec framework)
+# nova-spec
 
 ## Qué hace
 
@@ -23,11 +23,11 @@ Los `quick-fix` saltan `/nova-spec` y `/nova-plan`.
 ## Estructura física
 
 - `novaspec/commands/` — slash commands (7 archivos markdown)
-- `novaspec/skills/` — skills autocargadas por contexto (`load-context`, `close-requirement`, `write-decision`, `update-service-context`)
+- `novaspec/skills/` — skills autocargadas por contexto (`close-requirement`, `write-decision`, `update-service-context`, `jira-integration`)
 - `novaspec/agents/` — subagentes para operaciones pesadas (`context-loader`, `nova-review-agent`)
 - `novaspec/guardrails/` — precondiciones compartidas referenciadas por los comandos
 - `novaspec/templates/` — skeletons de artefactos (proposal, plan, tasks, review, commit, pr-body, ticket-summary, status-report)
-- `novaspec/config.yml` — configuración: pattern de rama, base branch, skill Jira
+- `novaspec/config.example.yml` — plantilla versionada; `install.sh` la copia a `novaspec/config.yml` (gitignored) en instalación limpia.
 
 ## Lo que no es obvio
 
@@ -35,7 +35,7 @@ Los `quick-fix` saltan `/nova-spec` y `/nova-plan`.
 - El directorio `context/` es la memoria arquitectónica: `decisions/` (por qué), `gotchas/` (trampas), `services/<svc>.md` (mapa corto), `changes/` (specs activas/archivadas). `archived/` dentro de `decisions/` existe pero **los agentes nunca la auto-cargan**.
 - Cada `/nova-*` (excepto `/nova-start`) valida precondiciones con un guardrail markdown. Ver → `decisions/guardrails-por-paso.md`.
 - Subagentes se usan cuando la operación cargaría >2 artefactos voluminosos (diff, decisions, specs). Ver → `decisions/patron-subagentes.md`.
-- `install.sh` **copia** `novaspec/` y `CLAUDE.md` al repo destino desde su ubicación fuente; `.claude/` se recrea con symlinks. Aborta si se ejecuta dentro del propio repo nova-spec. Ver → `decisions/install-sh-copia-desde-fuente.md`.
+- `install.sh` **copia** `novaspec/`, `CLAUDE.md` y `AGENTS.md` al repo destino desde su ubicación fuente; excluye `novaspec/config.yml` del maintainer y bootstrap-ea el del destino desde `config.example.yml` (o preserva el existente en reinstalación); `.claude/` se recrea con symlinks. Aborta si se ejecuta dentro del propio repo nova-spec. Ver → `decisions/install-sh-copia-desde-fuente.md`.
 - Todo en español.
 
 ## Decisiones relevantes
@@ -49,6 +49,8 @@ Los `quick-fix` saltan `/nova-spec` y `/nova-plan`.
 - → `decisions/install-sh-copia-desde-fuente.md`
 - → `decisions/naming-nova-spec.md`
 - → `decisions/quick-fix-salta-spec-y-plan.md`
+- → `decisions/repo-unico-vs-split.md`
+- → `decisions/convencion-context-git-vs-local.md`
 
 ## Dependencias
 

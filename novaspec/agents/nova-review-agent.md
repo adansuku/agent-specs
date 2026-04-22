@@ -15,7 +15,6 @@ usuario. No hagas commits. No modifiques código.
   se pasó como argumento
 - Lee:
   - `context/changes/active/<ticket-id>/proposal.md`
-  - `context/changes/active/<ticket-id>/plan.md`
   - `context/changes/active/<ticket-id>/tasks.md`
 - Lee decisiones vivas en `context/decisions/` (todas las relevantes, **sin entrar en `archived/`**)
 - Obtén el diff completo combinando:
@@ -47,7 +46,7 @@ Si algún artefacto no existe, termina con:
 
 **Riesgos**
 - ¿Efectos colaterales no previstos?
-- ¿El safety net del plan está implementado?
+- ¿El safety net de `tasks.md` está implementado?
 
 ### 3. Escribir reporte
 

@@ -1,12 +1,12 @@
 ---
-description: Implementa las tareas del plan una a una con review incremental
+description: Implementa las tareas una a una con review incremental
 ---
 
 Ejecutas `tasks.md` en orden, tarea a tarea.
 
 ## Guardrail
 
-`checklist.md` → 1, 3 (branch-pattern, plan-and-tasks-exist)
+`checklist.md` → 1, 3 (branch-pattern, tasks-exist)
 
 ## Precondición
 

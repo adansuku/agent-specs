@@ -4,7 +4,7 @@
 
 `/nova-start <TICKET>` → classify, branch, load context
 `/nova-spec` → close requirements, generate spec
-`/nova-plan` → plan + tasks
+`/nova-plan` → tasks (plan + tareas)
 `/nova-build` → execute tasks one-by-one
 `/nova-review` → final review against spec
 `/nova-wrap` → commit, PR, update memory

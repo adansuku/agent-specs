@@ -6,7 +6,7 @@
 ## Convenciones
 - <hallazgos o "sin incidencias">
 
-## ADRs
+## Decisiones
 - <conflictos o "sin conflictos">
 
 ## Riesgos

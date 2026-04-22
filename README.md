@@ -1,24 +1,40 @@
 <p align="center">
-  <img src="img/novaspec-logo.svg" alt="novaspec" width="480">
+  <img src="img/novaspec-logo.svg" alt="nova-spec" width="480">
 </p>
 
 <p align="center">
-  <strong>Spec-Driven Development (SDD)</strong> framework for Claude Code.
+  <strong>Spec-Driven Development sobre Claude Code.</strong><br>
+  De ticket de Jira a PR mergeado en pasos explícitos, con memoria arquitectónica que no decae.
 </p>
 
 ---
 
-## Quick Start
+## Qué es
+
+`nova-spec` añade a Claude Code siete comandos `/nova-*` que convierten un ticket en un cambio trazable: clasificar, cerrar requisitos, planificar, implementar tarea a tarea, revisar y cerrar con commit + PR + actualización de memoria. La memoria (`context/decisions/`, `context/gotchas/`, `context/services/`) vive en archivos markdown atómicos que el humano edita y grep encuentra.
+
+No es una plantilla ni un generador. Es un conjunto de convenciones + comandos que Claude Code ejecuta como slash commands en tu repo.
+
+## Por qué existe
+
+Sin disciplina, un agente escribe código rápido y pierde el porqué. Al siguiente ticket hay que re-explicar el mismo contexto. `nova-spec` impone checkpoints humanos, separa spec de tareas ejecutables, y deja rastro en `context/` para que el próximo ticket arranque informado.
+
+## Quickstart
 
 ```bash
-bash install.sh  # En repo destino
-claude           # Abre en raíz
+# 1. Clonar el repo nova-spec en tu máquina (una sola vez)
+git clone https://github.com/adansuku/nova-spec.git ~/tools/nova-spec
+
+# 2. Desde el repo donde quieres usarlo
+cd /ruta/a/tu-proyecto
+bash ~/tools/nova-spec/install.sh
+
+# 3. Abre Claude Code y lanza el primer ticket
+claude
 /nova-start PROJ-123
 ```
 
-Ver [INSTALL.md](./INSTALL.md) para instalación completa.
-
----
+Detalles completos en [INSTALL.md](./INSTALL.md).
 
 ## Flujo
 
@@ -28,35 +44,36 @@ Ver [INSTALL.md](./INSTALL.md) para instalación completa.
 
 | Comando | Qué hace |
 |---|---|
-| `/nova-start <TICKET>` | Clasifica, rama, carga contexto |
-| `/nova-spec` | Cierra requisitos, genera spec |
-| `/nova-plan` | Plan + tareas |
-| `/nova-build` | Ejecuta tareas una a una |
-| `/nova-review` | Code review final |
-| `/nova-wrap` | Commit, PR, actualiza memoria |
-| `/nova-status` | Estado del ticket |
+| `/nova-start <TICKET>` | Baja el ticket, clasifica (quick-fix / feature / architecture), crea rama, carga contexto |
+| `/nova-spec` | Cierra decisiones abiertas y escribe `proposal.md` |
+| `/nova-plan` | Traduce la spec en `tasks.md` (plan + tareas) |
+| `/nova-build` | Ejecuta tareas una a una con review incremental |
+| `/nova-review` | Code review final contra spec, convenciones y decisiones |
+| `/nova-wrap` | Actualiza memoria, archiva spec, commit y PR |
+| `/nova-status [TICKET]` | Estado actual del ticket (solo lectura) |
 
-Quick-fix: `start` → `build` → `wrap`
+Los `quick-fix` saltan `/nova-spec` y `/nova-plan`.
 
----
+## Principios
 
-## Docs
+- **No saltar pasos**. Cada comando tiene un guardrail que comprueba precondiciones.
+- **No inventar contexto**. Si falta info, el comando pregunta.
+- **Checkpoints humanos** tras `/nova-spec` y antes de `/nova-wrap`.
+- **Memoria que no decae**: un hecho = un archivo, nombre = índice, supersede explícito.
 
-- Referencia rápida: `novaspec/README.quickref.md`
-- Arquitectura: `novaspec/README.arch.md`
-- Instalación: [INSTALL.md](./INSTALL.md)
+## Documentación
 
----
+- Instalación detallada: [INSTALL.md](./INSTALL.md)
+- Arquitectura interna: [novaspec/README.arch.md](./novaspec/README.arch.md)
+- Referencia rápida: [novaspec/README.quickref.md](./novaspec/README.quickref.md)
+- Modelo de memoria: [context/decisions/memoria-sencilla.md](./context/decisions/memoria-sencilla.md)
+- Estructura de `context/`: [context/README.md](./context/README.md)
+- Contribuir: [CONTRIBUTING.md](./CONTRIBUTING.md)
 
-## Reglas
+## Dogfood
 
-- No saltar pasos
-- No inventar contexto (preguntar si falta)
-- Checkpoint humano post-spec y pre-wrap
-- Alimentar memoria al cerrar
+Este repo se desarrolla con `nova-spec`. Las carpetas `context/decisions/`, `context/gotchas/` y `context/changes/archive/` contienen las decisiones y specs reales del propio framework — úsalas como ejemplo vivo de cómo se ve un proyecto maduro.
 
----
+## Licencia
 
-## Estado
-
-Piloto en curso. Feedback en `notes.md`.
+MIT — ver `LICENSE`.

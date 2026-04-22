@@ -1,9 +1,9 @@
 ---
 name: update-service-context
-description: Actualiza context/services/<svc>.md cuando cambia comportamiento de servicio.
+description: Actualiza CONTEXT.md cuando cambia comportamiento de servicio.
 ---
 
-# Actualizar `context/services/<svc>.md`
+# Actualizar CONTEXT.md
 
 ## Cuándo actualizar
 
@@ -19,9 +19,7 @@ description: Actualiza context/services/<svc>.md cuando cambia comportamiento de
 
 ### 1. Verificar si existe
 
-El archivo vive en `context/services/<svc>.md`.
-
-Si no existe, pregunta si crear (recomendado).
+Si no existe, pregunta si crear.
 
 ### 2. Identificar cambios
 
@@ -29,13 +27,13 @@ Compara estado anterior vs nuevo.
 
 ### 3. Plantilla
 
-Usa esta estructura básica (mantén el archivo ≤80 líneas; reemplazar, no acumular):
+Usa `novaspec/templates/context.md` o estructura básica:
 
 ```
-# <svc>
+# Servicio: <nombre>
 
 ## Qué hace
-## Interfaces públicas
+## Contratos públicos
 ## Dependencias
 ## Última actualización: YYYY-MM-DD — <ticket>
 ```
@@ -56,5 +54,5 @@ Solo escribe tras confirmación.
 
 - No inventes responsabilidades
 - Si es interno sin impacto, no actualices
-- Archivo corto (≤80 líneas)
-- No repitas decisiones aquí; referencia `context/decisions/<archivo>.md` si aplica
+- CONTEXT.md corto
+- No repitas ADRs; usa "Ver ADR-NNNN"

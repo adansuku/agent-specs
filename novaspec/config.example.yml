@@ -16,7 +16,7 @@ branch:
   base: develop            # rama base del flujo (checkout en /nova-start, --base en /nova-wrap)
 
 jira:
-  skill: jira-integration         # nombre de la skill para bajar tickets; déjalo vacío para deshabilitar
+  skill: ""                       # nombre de la skill para bajar tickets; déjalo vacío para deshabilitar
   url: https://your-workspace.atlassian.net
   project: PROJ
   email: you@example.com
