@@ -44,6 +44,7 @@ Detalles completos en [INSTALL.md](./INSTALL.md).
 
 | Comando | Qué hace |
 |---|---|
+| `/nova-init` | Bootstrap one-off: escanea el repo y genera borradores de `context/services/` con TODOs |
 | `/nova-start <TICKET>` | Baja el ticket, clasifica (quick-fix / feature / architecture), crea rama, carga contexto |
 | `/nova-spec` | Cierra decisiones abiertas y escribe `proposal.md` |
 | `/nova-plan` | Traduce la spec en `tasks.md` (plan + tareas) |
@@ -52,7 +53,7 @@ Detalles completos en [INSTALL.md](./INSTALL.md).
 | `/nova-wrap` | Actualiza memoria, archiva spec, commit y PR |
 | `/nova-status [TICKET]` | Estado actual del ticket (solo lectura) |
 
-Los `quick-fix` saltan `/nova-spec` y `/nova-plan`.
+Los `quick-fix` saltan `/nova-spec` y `/nova-plan`. `/nova-init` es opcional y se usa una sola vez al instalar nova-spec en un repo existente.
 
 ## Principios
 

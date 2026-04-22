@@ -6,10 +6,11 @@ Framework de Spec-Driven Development sobre Claude Code. Convierte tickets de Jir
 
 ## Interfaces públicas
 
-7 slash commands en Claude Code:
+8 slash commands en Claude Code:
 
 | Comando | Qué hace |
 |---|---|
+| `/nova-init` | Bootstrap one-off de `context/services/` escaneando el repo (genera borradores) |
 | `/nova-start <TICKET>` | Baja ticket, clasifica, crea rama, carga contexto |
 | `/nova-spec` | Cierra decisiones y genera la spec |
 | `/nova-plan` | Traduce spec en plan + tareas |
@@ -18,15 +19,15 @@ Framework de Spec-Driven Development sobre Claude Code. Convierte tickets de Jir
 | `/nova-wrap` | Actualiza memoria, archiva spec, commit y PR |
 | `/nova-status [TICKET]` | Estado actual de un ticket (solo lectura) |
 
-Los `quick-fix` saltan `/nova-spec` y `/nova-plan`.
+Los `quick-fix` saltan `/nova-spec` y `/nova-plan`. `/nova-init` es opcional: se usa una vez al instalar nova-spec en un repo existente para sembrar `context/services/`.
 
 ## Estructura física
 
-- `novaspec/commands/` — slash commands (7 archivos markdown)
+- `novaspec/commands/` — slash commands (8 archivos markdown)
 - `novaspec/skills/` — skills autocargadas por contexto (`close-requirement`, `write-decision`, `update-service-context`, `jira-integration`)
 - `novaspec/agents/` — subagentes para operaciones pesadas (`context-loader`, `nova-review-agent`)
 - `novaspec/guardrails/` — precondiciones compartidas referenciadas por los comandos
-- `novaspec/templates/` — skeletons de artefactos (proposal, plan, tasks, review, commit, pr-body, ticket-summary, status-report)
+- `novaspec/templates/` — skeletons de artefactos (proposal, tasks, review, commit, pr-body, ticket-summary, status-report, init-project, init-service)
 - `novaspec/config.example.yml` — plantilla versionada; `install.sh` la copia a `novaspec/config.yml` (gitignored) en instalación limpia.
 
 ## Lo que no es obvio

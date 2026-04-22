@@ -36,6 +36,9 @@ cualquier parte.
 cd /ruta/a/tu/repo
 ```
 
+> Tip: si no quieres usar `cd` (o no recuerdas la ruta), ejecuta el instalador
+> desde cualquier sitio con `--path` o `--pick` (ver abajo).
+
 ### 3. Ejecutar con ruta absoluta al script
 
 ```bash
@@ -44,6 +47,29 @@ bash /ruta/a/nova-spec/install.sh
 
 El script detecta su propia ubicación (`SCRIPT_DIR`) y copia desde
 allí `novaspec/` y `AGENTS.md` al directorio actual. El destino es `$PWD`.
+
+Opciones útiles:
+
+```bash
+# instalar en una ruta sin hacer cd antes
+bash /ruta/a/nova-spec/install.sh --path /ruta/a/tu/repo
+
+# elegir carpeta destino (menú); si tienes fzf instalado, permite búsqueda
+bash /ruta/a/nova-spec/install.sh --pick
+```
+
+Elegir runtime:
+
+```bash
+# Solo Claude Code
+bash /ruta/a/nova-spec/install.sh --target claude
+
+# Solo OpenCode
+bash /ruta/a/nova-spec/install.sh --target opencode
+
+# Ambos (recomendado si tu equipo usa los 2)
+bash /ruta/a/nova-spec/install.sh --target both
+```
 
 Es idempotente: ejecutarlo varias veces regenera `novaspec/` y `AGENTS.md`
 desde la fuente, pero **no toca** `context/`, `notes.md` ni los archivos
