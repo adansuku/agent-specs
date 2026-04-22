@@ -28,6 +28,7 @@ Reglas:
 - orden ejecutable
 - incluir characterization tests antes de modificar código
 - usar checkboxes `- [ ]`
+- **no incluyas** tareas que escriban en `context/services/`, `context/decisions/` o `context/gotchas/`: esas actualizaciones de memoria son responsabilidad de `/nova-wrap`. Sí puedes incluir tareas que actualicen docs top-level (`README.md`, `CONTRIBUTING.md`, etc.) afectadas por el cambio.
 
 ### 3. Checkpoint humano
 
